@@ -1,0 +1,38 @@
+
+[
+    {
+        "name": "NavTo",
+        "inputs": ["robot_name", "x", "y", "tolerance"],
+        "outputs": ["success", "message"],
+        "description": "Navigate the robot to (x, y).",
+        "preconditions": "None",
+        "effects": [
+            "robot move to (x, y)"
+        ]
+    },   
+    {
+        "name": "Pick",
+        "inputs": ["object_name"],
+        "outputs": ["success", "message"],
+        "description": "Make the robot pick up a graspable object.",
+        "preconditions": [
+        "robot is not holding any object",
+        "object is graspable by robot"
+        ],
+        "effects": [
+        "robot is holding the object"
+        ]
+    },
+    {
+        "name": "Place",
+        "inputs": ["object_name", "location_name"],
+        "outputs": [],
+        "description": "Place the currently held object onto a target object or target position.",
+        "preconditions": [
+        "robot is holding the object"
+        ],
+        "effects": [
+        "robot no longer holds the object"
+        ]
+    }
+]
