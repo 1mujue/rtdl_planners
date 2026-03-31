@@ -12,7 +12,7 @@
     },   
     {
         "name": "Pick",
-        "inputs": ["object_name"],
+        "inputs": ["robot_name", "object_name"],
         "outputs": ["success", "message"],
         "description": "Make the robot pick up a graspable object.",
         "preconditions": [
@@ -25,9 +25,9 @@
     },
     {
         "name": "Place",
-        "inputs": ["object_name", "location_name"],
-        "outputs": [],
-        "description": "Place the currently held object onto a target object or target position.",
+        "inputs": ["robot_name", "object_name", "location_name"],
+        "outputs": ["success", "message"],
+        "description": "Place the robot's currently holding object onto a target object or target position.",
         "preconditions": [
         "robot is holding the object"
         ],

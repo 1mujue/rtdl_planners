@@ -1,16 +1,19 @@
 from planner import TaskPlanner
 from llm_client import DeepSeekClient
 from compiler_bridge import RTDLCompilerBridge
+from ros2_bt_bridge import ROS2BTBridge
     
 def help():
     print("RTDL Planner Terminal")
     print("Commands:")
-    print("  /plan <task>")
-    print("  /compile")
-    print("  /state")
-    print("  /prompt")
-    print("  /last")
-    print("  /quit")
+    print("  /plan <task> # Input a natural language description of the task, and we will output rtdl.")
+    print("  /compile # compile the LAST generated rtdl into xml (the tree structure description file of bt).")
+    print("  /state # get the LAST state of the robot world.")
+    print("  /prompt # get the last prompt sent to agent.")
+    print("  /last # get the last reply of agent.")
+    print("  /quit # quit the process.")
+    print("  /set_rtdl <RTDL> # replace the LAST generated rtdl with your input.")
+    print("  /run # run the LAST generated bt xml.")
     
 def main():
     planner = TaskPlanner(
@@ -21,7 +24,15 @@ def main():
             max_tokens=2048,
         )
     )
-    rtdlCompiler = RTDLCompilerBridge("../rtdlc/build/RTDLC")
+    rtdlCompiler = RTDLCompilerBridge("/home/mujue/pros/ud/rtdlc/build/RTDLC")
+    ros2btRunner = ROS2BTBridge(
+        workspace_root="/home/mujue/pros/ud/ros2_rtdl",
+        package_name="rtdl_demo_bt",
+        executable_name="bt_runner",
+        ros_distro="humble",
+        xml_name="plan.xml"
+    )
+
 
     help()
 
@@ -37,21 +48,16 @@ def main():
         if line == "/quit":
             break
 
-        if line == "/state":
+        elif line == "/state":
             if planner.last_world_state is None:
                 print("No world state loaded yet.")
             else:
                 print(planner.last_world_state)
-            continue
 
-        if line == "/prompt":
-            if planner.last_prompt is None:
-                print("No prompt generated yet.")
-            else:
-                print(planner.last_prompt)
-            continue
+        elif line == "/prompt":
+            print(planner.get_last_prompt())
 
-        if line == "/last":
+        elif line == "/last":
             if planner.last_result is None:
                 print("No result yet.")
             else:
@@ -62,9 +68,8 @@ def main():
                     print("-", item)
                 print("\nRTDL:")
                 print(planner.last_result["rtdl"])
-            continue
 
-        if line.startswith("/plan "):
+        elif line.startswith("/plan "):
             task = line[len("/plan "):].strip()
             if not task:
                 print("Task is empty.")
@@ -82,16 +87,30 @@ def main():
             except Exception as e:
                 print(f"[ERROR] {e}")
 
-            continue
+        elif line.startswith("/set_rtdl"):
+            user_rtdl = line[len("/set_rtdl "):].strip()
+            if not user_rtdl:
+                print("The rtdl is empty.")
+                continue
+            planner.last_rtdl = user_rtdl
+            print("Set RTDL successfully.")
 
-        if line == "/compile":
-            rtdl_text = planner.last_result["rtdl"]
-            bt_xml = rtdlCompiler.compile(rtdl_text=rtdl_text)
+        elif line == "/compile":
+            bt_xml = rtdlCompiler.compile(rtdl_text=planner.last_rtdl)
             print("Compile output(BT XML):")
             print(bt_xml)
             planner.last_bt = bt_xml
 
-        print("Unknown command.")
+        elif line == "/build":
+            ros2btRunner.write_xml(planner.last_bt)
+            ros2btRunner.build_package()
+            print("Build succeeded.")
+            
+        elif line == "/run":
+            ros2btRunner.run_node()
+
+        else:
+            print("Unknown command.")
 
 if __name__ == "__main__":
     main()

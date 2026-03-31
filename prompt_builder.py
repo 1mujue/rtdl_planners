@@ -93,10 +93,40 @@ BuiltinType -> 'bool'
 | 'float'
 | 'string'
 
-Note that the assign operation is ONLY ALLOWED in rtdl when assign the output
-of a skill to a variable. That means, you can't write something like:
-state x: float;
-x = 1.0;
+KEY: the variables in rtdl are ONLY used to pass in and out params of a skill or a sub-task,
+in other word, they are the representation of data flowing as the task being executed. That means,
+The assign operation can ONLY happen when do a skill or call a sub-task, and these statement is invalid:
+state x: int;
+x = x + 1;
+state y: int;
+y = x; 
+
+An example of rtdl(assuming we have a skill Demo(inpar1, inpar2, outpar1, outpar2))
+def task Example(t1: int, t2:int; t3: int, t4: int){
+    Sequence{
+        do Demo(inpar1=t1,inpar2=t2;outpar1->t3,outpar2->t4);
+    }
+}
+
+If you have already know the exact value of t1, t2(for example, 1 and 2), then you don't need to 
+write them as params of 'task Example'; instead, you can write like:
+def task Example(;t3: int, t4: int){
+    Sequence{
+        do Demo(inpar1=1,inpar2=2;outpar1->t3,outpar->t4);
+    }
+}
+Moreover, if a task doesn't need to pass out any params, which in 'task Example' means t3 and t4
+are redundant, then you can write it like:
+def task Example(;){
+    state local_out1: int;
+    state local_out2: int;
+    Sequence{
+        do Demo(inpar1=1,inpar2=2;outpar1->local_out1,outpar2->local_out2);
+    }
+}
+
+Usually, if a task is the main task, then it doesn't need any in and out params.
+
 """.strip()
 
     user_prompt = f"""

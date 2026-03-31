@@ -19,8 +19,10 @@ class TaskPlanner:
         self.last_world_state = None
         self.last_system_prompt = None
         self.last_user_promt = None
-        self.last_reply = None
+
         self.last_result = None
+
+        self.last_rtdl = None
         self.last_bt = None
     
     def close(self):
@@ -46,9 +48,14 @@ class TaskPlanner:
         result = parse_planner_reply(raw_reply)
 
         self.last_world_state = world_state
+
         self.last_system_prompt = system_prompt
         self.last_user_promt = user_prompt
-        self.last_reply = raw_reply
+
         self.last_result = result
+        self.last_rtdl = self.last_result["rtdl"]
         
         return result
+    
+    def get_last_prompt(self) -> str:
+        return "system prompt: " + self.last_system_prompt + "\nuser_prompt: " + self.last_user_promt
