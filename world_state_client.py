@@ -1,11 +1,23 @@
 import json
 import rclpy
+import threading
 from rclpy.node import Node
 from typing import Dict
 from rtdl_demo_interfaces.srv import GetWorldState
 from rosidl_runtime_py.convert import message_to_ordereddict
 
+# NOTE: this is a Singleton.
 class WorldStateClient(Node):
+    _instance = None
+    _lock = threading.Lock()
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            with cls._lock:
+                if not cls._instance:
+                    cls._instance = super(WorldStateClient, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
+    
     def __init__(self, service_name: str = "/get_world_state"):
         super().__init__("planner_world_state_client")
         self.cli = self.create_client(GetWorldState, service_name)

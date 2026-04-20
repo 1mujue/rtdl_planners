@@ -11,11 +11,6 @@ The json object must contain exactly these keys:
 - assumptions
 - rtdl
 
-Rules:
-- Only use skills listed in the provided skills document.
-- Do not invent robots, objects, or relations that are not present in the world state.
-- The value of "rtdl" must be a complete RTDL program as a string.
-
 Example json format:
 {
   "plan_summary": "short summary",
@@ -23,83 +18,10 @@ Example json format:
   "rtdl": "task Demo { ... }"
 }
 
-The syntactic of rtdl:
-CompUnit -> { TaskDef }
-TaskDef -> 'def' 'task' ID '(' TaskParams ')' TaskBody
-TaskParams -> [InParamList] ';' [OutParamList] 
-InParamList -> ParamDecl {',' ParamDecl}
-OutParamList -> ParamDecl {',' ParamDecl}
-ParamDecl -> ID ':' Type
-
-TaskBody -> '{' {StateDecl} Node '}'
-StateDecl -> 'state' ID ':' Type ';'
-
-Node -> CompositeNode
-| DecoratorNode
-| LeafNode
-
-CompositeNode -> SequenceNode
-| SelectorNode
-SequenceNode -> 'sequence' ChildBlock
-SelectorNode -> 'selector' ChildBlock
-ChildBlock -> '{' Node { Node } '}'
-
-DecoratorNode -> RetryNode
-| TimeoutNode
-RetryNode -> 'retry' '(' INT ')' Node
-TimeoutNode -> 'timeout' '(' Duration ')' Node
-
-LeafNode -> SkillCall
-| TaskCall
-| CheckStmt
-| WaitStmt
-
-SkillCall -> 'do' ID '(' BindSections ')' ';'
-TaskCall -> 'call' ID '(' BindSections ')' ';'
-BindSections -> [InBindings] ';' [OutBindings]
-InBindings -> InBinding {',' InBinding}
-OutBindings -> OutBinding {',' OutBinding}
-InBinding -> ID '=' Value
-OutBinding -> ID '->' Ref
-
-Value -> Literal 
-| Ref
-Ref -> ID
-
-CheckStmt -> 'check' '(' CondExp ')' ';'
-CondExp -> LOrExp
-LOrExp -> LAndExp {'||' LAndExp}
-LAndExp -> EqExp {'&&' EqExp }
-EqExp -> RelExp { ('==' | '!=') RelExp }
-RelExp -> AddExp [ ('>=' | '>' | '<' | '<=') AddExp ]
-AddExp -> MulExp { ('+' | '-') MulExp }
-MulExp -> UnaryExp { ('*' | '/' | '%') UnaryExp}
-UnaryExp -> ('-' | '!') UnaryExp | PrimaryExp
-PrimaryExp -> Literal
-| Ref
-| '(' CondExp ')'
-
-WaitStmt -> 'wait' '(' Duration ')' ';'
-
-Literal -> INT
-| FLOAT
-| STRING
-| BOOL
-Duration -> INT
-
-Type -> BuiltinType 
-BuiltinType -> 'bool'
-| 'int'
-| 'float'
-| 'string'
-
-KEY: the variables in rtdl are ONLY used to pass in and out params of a skill or a sub-task,
-in other word, they are the representation of data flowing as the task being executed. That means,
-The assign operation can ONLY happen when do a skill or call a sub-task, and these statement is invalid:
-state x: int;
-x = x + 1;
-state y: int;
-y = x; 
+Rules:
+- Only use skills listed in the provided skills document. You MUST make sure every port's name is completely same as described in skills.json and every port MUST be used.
+- Do not invent robots, objects, or relations that are not present in the world state.
+- The value of "rtdl" must be a complete RTDL program as a string.
 
 An example of rtdl(assuming we have a skill Demo(inpar1, inpar2, outpar1, outpar2))
 def task Example(t1: int, t2:int; t3: int, t4: int){
@@ -125,6 +47,61 @@ def task Example(;){
     }
 }
 
+More examples:
+
+def task navigate_and_report(target: string; success: bool) {
+    state arrived: bool;
+
+    sequence {
+        do NavTo(goal = target; ok -> arrived);
+        check(arrived == true);
+        wait(2);
+        do Speak(text = "Reached destination"; done -> success);
+    }
+}
+
+def task find_or_scan(item: string; found: bool) {
+    state detected: bool;
+
+    selector {
+        sequence {
+            do DetectObject(name = item; found -> detected);
+            check(detected == true);
+            do ConfirmDetection(; ok -> found);
+        }
+
+        sequence {
+            do Speak(text = "Object not found, start scanning"; );
+            do ScanArea(target = item; success -> found);
+        }
+    }
+}
+
+def task dock_to_station(station: string; docked: bool) {
+    state reached: bool;
+
+    sequence {
+        retry(3) do NavTo(goal = station; ok -> reached);
+        check(reached == true);
+        timeout(30) do Dock(station = station; ok -> docked);
+    }
+}
+
+def task standby_then_greet(; done: bool) {
+    sequence {
+        wait(5);
+        do Speak(text = "Hello"; ok -> done);
+    }
+}
+
+KEY: the variables in rtdl are ONLY used to pass in and out params of a skill or a sub-task,
+in other word, they are the representation of data flowing as the task being executed. That means,
+The assign operation can ONLY happen when do a skill or call a sub-task, and these statement is invalid:
+state x: int;
+x = x + 1;
+state y: int;
+y = x; 
+
 Usually, if a task is the main task, then it doesn't need any in and out params.
 
 """.strip()
@@ -132,6 +109,9 @@ Usually, if a task is the main task, then it doesn't need any in and out params.
     user_prompt = f"""
 Available skills:
 {json.dumps(skills, ensure_ascii=False, indent=2)}
+
+Note that you have to make sure that you use ALL ports of a skill if you use it,
+and you CAN'T invent new skills.
 
 Current world state:
 {json.dumps(world_state, ensure_ascii=False, indent=2)}

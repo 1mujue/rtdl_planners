@@ -14,34 +14,27 @@ class TaskPlanner:
         if not rclpy.ok():
             rclpy.init()
 
+        self.skills= None
         self.ws_client = WorldStateClient()
-
-        self.last_world_state = None
         self.last_system_prompt = None
-        self.last_user_promt = None
-
-        self.last_result = None
-
-        self.last_rtdl = None
-        self.last_bt = None
+        self.last_user_prompt = None
     
     def close(self):
         self.ws_client.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()
     
-    def load_skills(self) -> List[Dict]:
+    def load_skills(self) -> None:
         with open(self.skills_path, "r", encoding="utf-8") as f:
-            return json.load(f)
+            self.skills = json.load(f)
         
     def plan(self, user_task: str) -> Dict:
         world_state = self.ws_client.fetch()
-        skills = self.load_skills()
-
+        print("The world state for plan: \n" + world_state)
         system_prompt, user_prompt = build_prompts(
             user_task=user_task,
             world_state=world_state,
-            skills=skills,
+            skills=self.skills,
         )
 
         raw_reply = self.llm_client.generate(system_prompt, user_prompt)
@@ -50,12 +43,9 @@ class TaskPlanner:
         self.last_world_state = world_state
 
         self.last_system_prompt = system_prompt
-        self.last_user_promt = user_prompt
-
-        self.last_result = result
-        self.last_rtdl = self.last_result["rtdl"]
+        self.last_user_prompt = user_prompt
         
         return result
     
     def get_last_prompt(self) -> str:
-        return "system prompt: " + self.last_system_prompt + "\nuser_prompt: " + self.last_user_promt
+        return "system prompt: " + self.last_system_prompt + "\nuser_prompt: " + self.last_user_prompt

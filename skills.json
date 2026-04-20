@@ -1,9 +1,16 @@
-
 [
     {
         "name": "NavTo",
-        "inputs": ["robot_name", "x", "y", "tolerance"],
-        "outputs": ["success", "message"],
+        "input_ports": [
+            {"name": "robot_name", "type":"string"}, 
+            {"name": "x", "type":"double"}, 
+            {"name": "y", "type":"double"}, 
+            {"name":"tolerance","type":"double"}
+        ],
+        "output_ports": [
+            {"name":"success","type":"bool"},
+            {"name":"message","type":"string"}
+        ],
         "description": "Navigate the robot to (x, y).",
         "preconditions": "None",
         "effects": [
@@ -12,8 +19,14 @@
     },   
     {
         "name": "Pick",
-        "inputs": ["robot_name", "object_name"],
-        "outputs": ["success", "message"],
+        "input_ports": [
+            {"name":"robot_name","type":"string"}, 
+            {"name":"object_name","type":"string"}
+        ],
+        "output_ports": [
+            {"name":"success","type":"bool"},
+            {"name":"message","type":"string"}
+        ],
         "description": "Make the robot pick up a graspable object.",
         "preconditions": [
         "robot is not holding any object",
@@ -25,8 +38,15 @@
     },
     {
         "name": "Place",
-        "inputs": ["robot_name", "object_name", "location_name"],
-        "outputs": ["success", "message"],
+        "input_ports": [
+            {"name":"robot_name","type":"string"}, 
+            {"name":"object_name","type":"string"}, 
+            {"name":"location_name","type":"string"}
+        ],
+        "output_ports": [
+            {"name":"success","type":"bool"},
+            {"name":"message","type":"string"}
+        ],
         "description": "Place the robot's currently holding object onto a target object or target position.",
         "preconditions": [
         "robot is holding the object"
