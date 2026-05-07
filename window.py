@@ -142,7 +142,7 @@ class MainWindow(QMainWindow):
         self.main_layout.setSpacing(11)
 
         # the backend.
-        self.conductor = Conductor()
+        self.conductor = Conductor(model_alias="claude")
 
         # the style.
         self.setStyleSheet("""

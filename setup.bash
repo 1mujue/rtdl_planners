@@ -1,1 +1,2 @@
-export DEEPSEEK_API_KEY="sk-504819d944084af096d4502be3b77503"
+export DASHSCOPE_API_KEY="sk-3c02689f799e435ea77eb60f1ed28740"
+export OFOXAI_API_KEY="sk-of-UEQzhEhHrwAMZwZnkoiXqeAqMLJKsPiptNwwhiauyhdDFyJYSlyLhfmlDuHamrEn"

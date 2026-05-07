@@ -14,10 +14,12 @@ class TaskPlanner:
         if not rclpy.ok():
             rclpy.init()
 
-        self.skills= None
+        self.skills = None
         self.ws_client = WorldStateClient()
         self.last_system_prompt = None
         self.last_user_prompt = None
+
+        self.load_skills()
     
     def close(self):
         self.ws_client.destroy_node()
@@ -31,6 +33,9 @@ class TaskPlanner:
     def plan(self, user_task: str) -> Dict:
         world_state = self.ws_client.fetch()
         print("The world state for plan: \n" + world_state)
+        print("The skills information: ")
+        for ski in self.skills:
+            print(ski)
         system_prompt, user_prompt = build_prompts(
             user_task=user_task,
             world_state=world_state,

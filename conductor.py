@@ -1,19 +1,15 @@
 from planner import TaskPlanner
-from llm_client import DeepSeekClient
+from llm_client import build_llm_client
 from compiler_bridge import RTDLCompilerBridge
 from ros2_bt_bridge import ROS2BTBridge
 from world_state_client import WorldStateClient
 from typing import Dict, Tuple
 
 class Conductor:
-    def __init__(self):
+    def __init__(self, model_alias: str):
         self.planner = TaskPlanner(
             skills_path="skills.json",
-            llm_client=DeepSeekClient(
-                model="deepseek-chat",
-                base_url="https://api.deepseek.com",
-                max_tokens=2048,
-            )
+            llm_client=build_llm_client(model_alias=model_alias)
         )
         self.WSClient = WorldStateClient()
         self.rtdlCompiler = RTDLCompilerBridge("/home/mujue/pros/ud/rtdlc/build/RTDLC")
