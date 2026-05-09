@@ -19,7 +19,7 @@ class ROS2BTBridge:
         self.workspace_root = Path(workspace_root).resolve()
         self.package_name = package_name
         self.executable_name = executable_name
-        self.ros_distro  =ros_distro
+        self.ros_distro = ros_distro
         self.use_packages_up_to = use_packages_up_to
 
     @property

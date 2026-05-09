@@ -5,113 +5,116 @@ def build_prompts(user_task: str, world_state: dict, skills: list[dict]) -> tupl
     system_prompt = """
 You are a robot task planner.
 
-You must generate a valid json object.
-The json object must contain exactly these keys:
+Return a valid JSON object with exactly these keys:
 - plan_summary
 - assumptions
 - rtdl
 
-Example json format:
+Example JSON format:
 {
   "plan_summary": "short summary",
   "assumptions": ["assumption 1", "assumption 2"],
-  "rtdl": "task Demo { ... }"
+  "rtdl": "def task Demo(;){ sequence{ ... } }"
 }
 
 Rules:
-- Only use skills listed in the provided skills document. You MUST make sure every port's name is completely same as described in skills.json and every port MUST be used.
-- Do not invent robots, objects, or relations that are not present in the world state.
-- The value of "rtdl" must be a complete RTDL program as a string.
+1. Use ONLY skills listed in the provided skills document.
+2. If you use a skill, you MUST use all of its ports exactly as defined in skills.json:
+   - input port names must match exactly
+   - output port names must match exactly
+   - do not omit any required port
+3. Do NOT invent new skills, robots, objects, locations, or relations.
+4. The value of "rtdl" must be one complete RTDL program as a string.
+5. Define ONLY one task.
+6. The task is the main task, so it MUST have no input params and no output params:
+   def task TaskName(;){ ... }
+7. Variables in RTDL are ONLY for passing data into or out of a skill/sub-task.
+   They are dataflow placeholders, not mutable variables.
+   So these are INVALID:
+   state x: int;
+   x = x + 1;
+   state y: int;
+   y = x;
 
-An example of rtdl(assuming we have a skill Demo(inpar1, inpar2, outpar1, outpar2))
-def task Example(t1: int, t2:int; t3: int, t4: int){
-    Sequence{
-        do Demo(inpar1=t1,inpar2=t2;outpar1->t3,outpar2->t4);
-    }
-}
+Generation guidance:
+- Prefer sequence when the task is a fixed ordered procedure.
+- Use selector when there are alternatives, fallback plans, or "try A, otherwise do B".
+- Use check(...) to validate important execution conditions or skill results.
+- Use wait(t) when the task explicitly requires waiting, delay, or stabilization.
+- Use retry(n) for actions that may transiently fail and are reasonable to retry.
+- Use timeout(t) for actions that must finish within a bounded time.
 
-If you have already know the exact value of t1, t2(for example, 1 and 2), then you don't need to 
-write them as params of 'task Example'; instead, you can write like:
-def task Example(;t3: int, t4: int){
-    Sequence{
-        do Demo(inpar1=1,inpar2=2;outpar1->t3,outpar->t4);
-    }
-}
-Moreover, if a task doesn't need to pass out any params, which in 'task Example' means t3 and t4
-are redundant, then you can write it like:
+RTDL examples:
+
 def task Example(;){
-    state local_out1: int;
-    state local_out2: int;
-    Sequence{
-        do Demo(inpar1=1,inpar2=2;outpar1->local_out1,outpar2->local_out2);
+    state out1: int;
+    state out2: int;
+    sequence{
+        do Demo(inpar1=1,inpar2=2;outpar1->out1,outpar2->out2);
     }
 }
 
-More examples:
-
-def task navigate_and_report(target: string; success: bool) {
+def task navigate_and_report(;){
     state arrived: bool;
+    state done: bool;
 
-    sequence {
-        do NavTo(goal = target; ok -> arrived);
+    sequence{
+        do NavTo(goal="kitchen";ok->arrived);
         check(arrived == true);
         wait(2);
-        do Speak(text = "Reached destination"; done -> success);
+        do Speak(text="Reached destination";done->done);
     }
 }
 
-def task find_or_scan(item: string; found: bool) {
+def task find_or_scan(;){
     state detected: bool;
+    state found: bool;
 
-    selector {
-        sequence {
-            do DetectObject(name = item; found -> detected);
+    selector{
+        sequence{
+            do DetectObject(name="cup";found->detected);
             check(detected == true);
-            do ConfirmDetection(; ok -> found);
+            do ConfirmDetection(;ok->found);
         }
-
-        sequence {
-            do Speak(text = "Object not found, start scanning"; );
-            do ScanArea(target = item; success -> found);
+        sequence{
+            do Speak(text="Object not found, start scanning";);
+            do ScanArea(target="cup";success->found);
         }
     }
 }
 
-def task dock_to_station(station: string; docked: bool) {
+def task dock_to_station(;){
     state reached: bool;
+    state docked: bool;
 
-    sequence {
-        retry(3) do NavTo(goal = station; ok -> reached);
+    sequence{
+        retry(3) do NavTo(goal="station";ok->reached);
         check(reached == true);
-        timeout(30) do Dock(station = station; ok -> docked);
+        timeout(30) do Dock(station="station";ok->docked);
     }
 }
 
-def task standby_then_greet(; done: bool) {
-    sequence {
+def task standby_then_greet(;){
+    state done: bool;
+
+    sequence{
         wait(5);
-        do Speak(text = "Hello"; ok -> done);
+        do Speak(text="Hello";ok->done);
     }
 }
 
-KEY: the variables in rtdl are ONLY used to pass in and out params of a skill or a sub-task,
-in other word, they are the representation of data flowing as the task being executed. That means,
-The assign operation can ONLY happen when do a skill or call a sub-task, and these statement is invalid:
-state x: int;
-x = x + 1;
-state y: int;
-y = x; 
-
-Usually, if a task is the main task, then it doesn't need any in and out params.
-
+Important:
+- Usually the whole task should be wrapped in sequence or selector.
+- Use selector / retry / timeout / wait / check whenever they are logically appropriate, not only sequence + do.
+- Keep the RTDL grounded in the provided world state and skills.
 """.strip()
 
     user_prompt = f"""
 Available skills:
 {json.dumps(skills, ensure_ascii=False, indent=2)}
 
-Note that you have to make sure that you use ALL ports of a skill if you use it,
-and you CAN'T invent new skills.
+You must use skill names and ALL port names exactly as defined above.
+Do not invent new skills or ports.
 
 Current world state:
 {json.dumps(world_state, ensure_ascii=False, indent=2)}

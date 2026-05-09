@@ -4,28 +4,39 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QTabWidget,\
     QLabel, QGridLayout, QProgressDialog
 from PySide6.QtCore import Slot, Qt, QObject, Signal, QThread, QTimer
 from conductor import Conductor
+import argparse
 
 class MyQtWorker(QObject):
     result_ready = Signal(object)
     error_occurred = Signal(str)
     finished = Signal()
 
-    def __init__(self, func):
+    def __init__(self, func, *args, **kwargs):
         super().__init__()
         self.func = func
-    
+        self.args = args
+        self.kwargs = kwargs
+
     @Slot()
     def run(self):
+        print("[worker] run entered", flush=True)
         try:
-            result = self.func()
+            print("[worker] calling func...", flush=True)
+            result = self.func(*self.args, **self.kwargs)
+            print("[worker] func returned", flush=True)
             self.result_ready.emit(result)
-        except Exception as e:
-            self.error_occurred.emit(str(e))
+        except Exception:
+            import traceback
+            message = traceback.format_exc()
+            print("[worker] error occurred:", flush=True)
+            print(message, flush=True)
+            self.error_occurred.emit(message)
         finally:
+            print("[worker] finished emitted", flush=True)
             self.finished.emit()
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, model_alias: str):
         super().__init__()
         self.setWindowTitle("RTDL Planner GUI")
         self.resize(800, 600)
@@ -142,7 +153,10 @@ class MainWindow(QMainWindow):
         self.main_layout.setSpacing(11)
 
         # the backend.
-        self.conductor = Conductor(model_alias="claude")
+        self.conductor = Conductor(model_alias=model_alias)
+
+        self.last_rtdl = None
+        self.last_bt_xml = None
 
         # the style.
         self.setStyleSheet("""
@@ -259,7 +273,8 @@ class MainWindow(QMainWindow):
         dialog_rect.moveCenter(center_point)
         self.wait_dialog.move(dialog_rect.topLeft())
     
-    def start_blocking_task(self, title, func, on_result) -> None:
+    def start_blocking_task(self, title, func, on_result, *args, **kwargs) -> None:
+        print("start blocking task...")
         self.wait_dialog = QProgressDialog(title, None, 0, 0, self)
         self.wait_dialog.setWindowTitle("Please wait")
         self.wait_dialog.setWindowModality(Qt.WindowModal)
@@ -277,7 +292,7 @@ class MainWindow(QMainWindow):
         QTimer.singleShot(0, self.center_wait_dialog)
 
         self.worker_thread = QThread(self)
-        self.worker = MyQtWorker(func)
+        self.worker = MyQtWorker(func, *args, **kwargs)
 
         self.worker.moveToThread(self.worker_thread)
 
@@ -300,21 +315,30 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def on_gen_rtdl(self) -> None:
-        result = self.conductor.plan_rtdl(self.task_input.toPlainText())
+        task_text = self.task_input.toPlainText()
+        self.start_blocking_task(
+            "Generate RTDL, please wait...",
+            self.conductor.plan_rtdl,
+            self.on_gen_rtdl_finished,
+            task_text
+        )
+
+    @Slot(object)
+    def on_gen_rtdl_finished(self, result) -> None:
+        print("The callback is called.")
         self.rtdl_out_view.setPlainText("The plan result(including RTDL):")
         self.rtdl_out_view.appendPlainText("The plan summary:\n" + result["plan_summary"])
         self.rtdl_out_view.appendPlainText("The assumption: ")
         for ass in result["assumptions"]:
             self.rtdl_out_view.appendPlainText(ass)
+        self.last_rtdl = result["rtdl"]
         self.rtdl_out_view.appendPlainText("The RTDL: \n" + result["rtdl"])
-
         self.out_tabs.setCurrentIndex(1)
 
     @Slot()
     def on_get_world_state(self) -> None:
         world_state = self.conductor.get_world_state()
         self.world_state_view.setPlainText("The world state: \n" + world_state)
-
         self.out_tabs.setCurrentIndex(0)
 
     @Slot()
@@ -322,12 +346,14 @@ class MainWindow(QMainWindow):
         self.start_blocking_task(
             "Compiling RTDL, please wait...",
             self.conductor.compile_rtdl,
-            self.on_compile_rtdl_finished
+            self.on_compile_rtdl_finished,
+            self.last_rtdl
         )
 
     @Slot(object)
     def on_compile_rtdl_finished(self, result) -> None:
         bt_xml, stdout, stderr = result
+        self.last_bt_xml = bt_xml
         self.bt_xml_view.setPlainText(bt_xml)
         self.system_log_view.appendPlainText("Compile standard output: \n" + stdout)
         self.system_log_view.appendPlainText("Compile standard error: \n" + stderr)
@@ -338,7 +364,8 @@ class MainWindow(QMainWindow):
         self.start_blocking_task(
             "Building package, please wait...",
             self.conductor.build_ros2_bt_pkg,
-            self.on_build_pkg_finished
+            self.on_build_pkg_finished,
+            self.last_bt_xml
         )
 
     @Slot(object)
@@ -380,12 +407,8 @@ class MainWindow(QMainWindow):
 
         self.out_tabs.setCurrentIndex(1)
 
-def main():
+def GUI_entry(args, backend):
     app = QApplication(sys.argv)
-    window = MainWindow()
+    window = MainWindow(args.model)
     window.show()
     sys.exit(app.exec())
-
-
-if __name__ == "__main__":
-    main()

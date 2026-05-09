@@ -30,7 +30,8 @@
         "description": "Make the robot pick up a graspable object.",
         "preconditions": [
         "robot is not holding any object",
-        "object is graspable by robot"
+        "object is graspable by robot",
+        "object is in the range of interaction_distance(Euclidean distance on the (x, y) coordinates) of robot"
         ],
         "effects": [
         "robot is holding the object"
@@ -49,7 +50,8 @@
         ],
         "description": "Place the robot's currently holding object onto a target object or target position.",
         "preconditions": [
-        "robot is holding the object"
+        "robot is holding the object",
+        "location is in the range of interaction_distance(Euclidean distance on the (x, y) coordinates) of robot"
         ],
         "effects": [
         "robot no longer holds the object"

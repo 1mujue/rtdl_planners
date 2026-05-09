@@ -2,6 +2,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 from typing import Tuple
+import os
 
 class RTDLCompilerBridge:
     def __init__(self, compiler_path: str):
@@ -18,11 +19,15 @@ class RTDLCompilerBridge:
 
             rtdl_file.write_text(rtdl_text, encoding="utf-8")
 
+            ros2_ws_path = os.environ.get("ROS2_WORKSPACE_PATH")
+            if ros2_ws_path is None:
+                raise ValueError(f"The env var ROS2_WORKSPACE_PATH is not set.")
+
             cmd = [
                 str(compiler_path),
                 "--rtdl-in", str(rtdl_file),
                 "--bt-out", str(bt_file),
-                "--ros2-ws", "/home/mujue/pros/ud/ros2_rtdl"
+                "--ros2-ws", ros2_ws_path
             ]
 
             result = subprocess.run(

@@ -1,7 +1,7 @@
 import json
 import rclpy
 
-from world_state_client import WorldStateClient
+from webots_bridge import WorldStateClient
 from prompt_builder import build_prompts
 from reply_parser import parse_planner_reply
 from typing import List, Dict
@@ -31,11 +31,11 @@ class TaskPlanner:
             self.skills = json.load(f)
         
     def plan(self, user_task: str) -> Dict:
-        world_state = self.ws_client.fetch()
-        print("The world state for plan: \n" + world_state)
-        print("The skills information: ")
-        for ski in self.skills:
-            print(ski)
+        world_state = self.ws_client.fetch_json()
+        # print("The world state for plan: \n" + world_state)
+        # print("The skills information: ")
+        # for ski in self.skills:
+        #     print(ski)
         system_prompt, user_prompt = build_prompts(
             user_task=user_task,
             world_state=world_state,
