@@ -72,6 +72,7 @@ def validate_rtdl(conductor: Conductor, rtdl: str) -> tuple[bool, str, Optional[
         (True, bt_xml, None): success
         (False, None, error_message): fail
     """
+    stderr = None
     try:
         bt_xml, stdout, stderr = conductor.compile_rtdl(rtdl)
         if stderr is None or not stderr:
@@ -79,7 +80,7 @@ def validate_rtdl(conductor: Conductor, rtdl: str) -> tuple[bool, str, Optional[
         else:
             return False, None, stderr
     except Exception:
-        return False, None, stderr
+        return False, None, stderr 
 
 
 
@@ -210,10 +211,11 @@ def default_task_for_level(level: int) -> str:
         return "Pick up the CUP and place it on the TABLE."
 
     if level == 2:
-        return "请让机器人取出架子里面的药瓶，并把它放到医疗台上。"
+        return "Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR."
 
     if level == 3:
-        return "请让机器人从三层箱堆中取出第二层的蓝色箱子，将它放到检查台上，并把最上方的绿色箱子放回最下方的箱子上。"
+        return "Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look " \
+        "like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure)."
 
     raise ValueError(f"Unknown level: {level}")
 
