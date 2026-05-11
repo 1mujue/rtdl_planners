@@ -124,7 +124,7 @@ MODEL_REGISTRY: dict[str, ModelConfig] = {
         alias="gemini",
         gateway="ofoxai_gemini",
         api_type="gemini_native",
-        model="gemini/gemini-3.1-flash",
+        model="gemini-3.1-pro-preview",
         max_tokens=2048,
         use_json_mode=True,
     ),

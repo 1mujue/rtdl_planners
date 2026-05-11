@@ -60,24 +60,25 @@ class ROS2BTBridge:
         
     
     def _run_cmd(self, extra_args: List[str] | None = None) -> str:
-        extra = ""
+        args = ["--mode", "run"]
         if extra_args:
-            extra = " " + " ".join(sh_quote(x) for x in extra_args)
+            args.extend(extra_args)
+
+        arg_str = " ".join(sh_quote(x) for x in args)
 
         return (
             f"source /opt/ros/{self.ros_distro}/setup.bash && "
             f"cd {sh_quote(str(self.workspace_root))} && "
             f"source install/setup.bash && "
-            f"exec ros2 run {sh_quote(self.package_name)} {sh_quote(self.executable_name)}{extra} --mode run"
+            f"ros2 run {sh_quote(self.package_name)} {sh_quote(self.executable_name)} {arg_str}"
         )
         
     
     def run_node(self, extra_args: List[str] | None = None) -> Tuple[str, str]:
         cmd = self._run_cmd(extra_args)
+        print(f"The cmd to execute rtdl: {cmd}")
         result = subprocess.run(
             ["bash", "-lc", cmd],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
             text=True,
         )
         return result.stdout, result.stderr

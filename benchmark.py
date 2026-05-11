@@ -1,6 +1,7 @@
 import json
 import time
 import traceback
+import subprocess
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Any, Optional
@@ -36,8 +37,9 @@ class BenchmarkRecord:
     traceback: Optional[str] = None
 
     # manual handle.
-    manual_logic_ok: Optional[bool] = None
-    manual_collision_observed: Optional[bool] = None
+    manual_logic_completeness: Optional[int] = None
+    manual_logic_correct: Optional[int] = None
+    manual_collision_observed: Optional[int] = None
     manual_notes: str = ""
 
 
@@ -70,16 +72,16 @@ def validate_rtdl(conductor: Conductor, rtdl: str) -> tuple[bool, str, Optional[
         (True, bt_xml, None): success
         (False, None, error_message): fail
     """
-    bt_xml, stdout, stderr = conductor.compile_rtdl(rtdl)
-    if stderr is None or not stderr:
-        return True, bt_xml, None
-    else:
+    try:
+        bt_xml, stdout, stderr = conductor.compile_rtdl(rtdl)
+        if stderr is None or not stderr:
+            return True, bt_xml, None
+        else:
+            return False, None, stderr
+    except Exception:
         return False, None, stderr
 
 
-def execute_rtdl(conductor: Conductor) -> tuple[bool, str, str]:
-    rout, rerr = conductor.run()
-    return True, rout, rerr
 
 class BenchmarkRunner:
     def __init__(
@@ -89,14 +91,12 @@ class BenchmarkRunner:
         level: int,
         task: str,
         repeat: int,
-        output_dir: str = "benchmark_results",
-        reset_sleep_sec: float = 1.0,
+        output_dir: str = "benchmark_results"
     ):
         self.model = model
         self.level = level
         self.task = task
         self.repeat = repeat
-        self.reset_sleep_sec = reset_sleep_sec
 
         self.run_dir = Path(output_dir) / f"{now_timestamp()}_{model}_level{level}"
         self.summary_jsonl = self.run_dir / "summary.jsonl"
@@ -131,6 +131,9 @@ class BenchmarkRunner:
         print(f"\n[Benchmark] finished.")
         print(f"[Benchmark] results saved to: {self.run_dir}")
 
+    def wait_backend_ready_after_reset(self) -> None:
+        time.sleep(0.2)
+
     def run_one_round(self, round_id: int) -> BenchmarkRecord:
         record = BenchmarkRecord(
             round=round_id,
@@ -144,7 +147,7 @@ class BenchmarkRunner:
             # 1. reset world
             print("[Benchmark] reset world...")
             self.reset_client.reset()
-            time.sleep(self.reset_sleep_sec)
+            self.wait_backend_ready_after_reset()
 
             # 2. LLM planning
             print("[Benchmark] planning RTDL...")
@@ -176,16 +179,19 @@ class BenchmarkRunner:
                 record.status = "rtdl_invalid"
                 return record
             
-            bout, berr = self.conductor.build_ros2_bt_pkg()
+            bout, berr = self.conductor.build_ros2_bt_pkg(bt_xml)
             # 4. execute RTDL
             print("[Benchmark] execute RTDL...")
             t2 = time.perf_counter()
-            exec_success, exec_o, exec_e = execute_rtdl(self.conductor, bt_xml)
+            exec_o, exec_e = self.conductor.run()
             t3 = time.perf_counter()
 
             record.execution_time_sec = t3 - t2
-            record.execution_success = exec_success
-            record.execution_message = exec_o + "\n" + exec_e
+            record.execution_success = True
+            if exec_o is not None:
+                record.execution_message = exec_o
+            if exec_e is not None:
+                record.execution_message += "\n" + exec_e
             record.status = "executed"
 
             return record
