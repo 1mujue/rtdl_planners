@@ -1,0 +1,28 @@
+{
+  "round": 16,
+  "model": "deepseek",
+  "level": 1,
+  "task": "Pick up the CUP and place it on the TABLE.",
+  "status": "executed",
+  "llm_time_sec": 18.006528438000032,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 15.060918256999912,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "Navigate to the cup, pick it up, navigate to the table, and place the cup on the table.",
+  "assumptions": [
+    "The robot's interaction distance is sufficient to pick up the cup and place it on the table.",
+    "The robot starts not holding any object.",
+    "The cup is graspable and within interaction distance after navigating to its location.",
+    "The table is reachable and the robot can place the cup on it after navigating to its location."
+  ],
+  "rtdl": "def task pick_and_place_cup_on_table(;){\n    state success_nav_to_cup: bool;\n    state message_nav_to_cup: string;\n    state success_pick: bool;\n    state message_pick: string;\n    state success_nav_to_table: bool;\n    state message_nav_to_table: string;\n    state success_place: bool;\n    state message_place: string;\n\n    sequence{\n        do NavTo(robot_name=\"CAR\", x=2.0000013287206873, y=1.999999967082999, tolerance=1.0; success->success_nav_to_cup, message->message_nav_to_cup);\n        check(success_nav_to_cup == true);\n        do Pick(robot_name=\"CAR\", object_name=\"CUP\"; success->success_pick, message->message_pick);\n        check(success_pick == true);\n        do NavTo(robot_name=\"CAR\", x=-2.000000110094677, y=2.000000000075862, tolerance=1.0; success->success_nav_to_table, message->message_nav_to_table);\n        check(success_nav_to_table == true);\n        do Place(robot_name=\"CAR\", object_name=\"CUP\", location_name=\"TABLE\"; success->success_place, message->message_place);\n    }\n}",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 0.75,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 2,
+  "manual_notes": ""
+}

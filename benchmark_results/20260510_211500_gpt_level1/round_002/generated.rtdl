@@ -1,0 +1,21 @@
+def task PickAndPlaceCupOnTable(;){
+    state nav_to_cup_success: bool;
+    state nav_to_cup_message: string;
+    state pick_success: bool;
+    state pick_message: string;
+    state nav_to_table_success: bool;
+    state nav_to_table_message: string;
+    state place_success: bool;
+    state place_message: string;
+
+    sequence{
+        retry(3) do NavTo(robot_name="CAR",x=2.0,y=2.0,tolerance=1.0;success->nav_to_cup_success,message->nav_to_cup_message);
+        check(nav_to_cup_success == true);
+        retry(3) do Pick(robot_name="CAR",object_name="CUP";success->pick_success,message->pick_message);
+        check(pick_success == true);
+        retry(3) do NavTo(robot_name="CAR",x=-1.9999999999999998,y=2.0,tolerance=1.0;success->nav_to_table_success,message->nav_to_table_message);
+        check(nav_to_table_success == true);
+        retry(3) do Place(robot_name="CAR",object_name="CUP",location_name="TABLE";success->place_success,message->place_message);
+        check(place_success == true);
+    }
+}

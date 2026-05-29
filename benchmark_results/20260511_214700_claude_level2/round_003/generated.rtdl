@@ -1,0 +1,52 @@
+def task PlaceMedicineBottleOnTable(;){
+    state nav1_ok: bool;
+    state nav1_msg: string;
+    state pick1_ok: bool;
+    state pick1_msg: string;
+    state nav2_ok: bool;
+    state nav2_msg: string;
+    state place1_ok: bool;
+    state place1_msg: string;
+    state nav3_ok: bool;
+    state nav3_msg: string;
+    state pick2_ok: bool;
+    state pick2_msg: string;
+    state nav4_ok: bool;
+    state nav4_msg: string;
+    state place2_ok: bool;
+    state place2_msg: string;
+
+    sequence{
+        // Step 1: Navigate to FRONT_CRATE (the obstacle)
+        retry(3) do NavTo(robot_name="CAR", x=1.8497392452978794, y=1.4997831962428745, tolerance=0.5; success->nav1_ok, message->nav1_msg);
+        check(nav1_ok == true);
+
+        // Step 2: Pick up the FRONT_CRATE
+        retry(2) do Pick(robot_name="CAR", object_name="FRONT_CRATE"; success->pick1_ok, message->pick1_msg);
+        check(pick1_ok == true);
+
+        // Step 3: Navigate to TEMP_ZONE to place the obstacle out of the way
+        retry(3) do NavTo(robot_name="CAR", x=-1.9999701853457355, y=-1.799969599711371, tolerance=0.5; success->nav2_ok, message->nav2_msg);
+        check(nav2_ok == true);
+
+        // Step 4: Place the FRONT_CRATE at TEMP_ZONE
+        retry(2) do Place(robot_name="CAR", object_name="FRONT_CRATE", location_name="TEMP_ZONE"; success->place1_ok, message->place1_msg);
+        check(place1_ok == true);
+
+        // Step 5: Navigate to MEDICINE_BOTTLE
+        retry(3) do NavTo(robot_name="CAR", x=2.55, y=1.5, tolerance=0.5; success->nav3_ok, message->nav3_msg);
+        check(nav3_ok == true);
+
+        // Step 6: Pick up the MEDICINE_BOTTLE
+        retry(2) do Pick(robot_name="CAR", object_name="MEDICINE_BOTTLE"; success->pick2_ok, message->pick2_msg);
+        check(pick2_ok == true);
+
+        // Step 7: Navigate to MEDICAL_TABLE
+        retry(3) do NavTo(robot_name="CAR", x=-2.3, y=2.0, tolerance=0.5; success->nav4_ok, message->nav4_msg);
+        check(nav4_ok == true);
+
+        // Step 8: Place MEDICINE_BOTTLE on MEDICAL_TABLE
+        retry(2) do Place(robot_name="CAR", object_name="MEDICINE_BOTTLE", location_name="MEDICAL_TABLE"; success->place2_ok, message->place2_msg);
+        check(place2_ok == true);
+    }
+}

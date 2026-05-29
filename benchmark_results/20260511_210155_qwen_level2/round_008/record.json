@@ -1,0 +1,27 @@
+{
+  "round": 8,
+  "model": "qwen",
+  "level": 2,
+  "task": "Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.",
+  "status": "executed",
+  "llm_time_sec": 131.78436182699988,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 47.696148013999846,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "Navigate to and pick up the FRONT_CRATE obstacle, then place it on the TEMP_ZONE to clear the path. After clearing the path, navigate to the MEDICINE_BOTTLE, pick it up, navigate to the MEDICAL_TABLE, and finally place the bottle on the table.",
+  "assumptions": [
+    "FRONT_CRATE is the obstacle blocking the path and is graspable.",
+    "TEMP_ZONE is a valid target location for placing the removed crate.",
+    "Navigating within a tolerance of 1.0 ensures the robot is within the 2.0 interaction distance required for Pick and Place operations."
+  ],
+  "rtdl": "def task MoveMedicineToTable(;){\n    state nav_crate: bool;\n    state pick_crate: bool;\n    state nav_zone: bool;\n    state place_crate: bool;\n    state nav_bottle: bool;\n    state pick_bottle: bool;\n    state nav_table: bool;\n    state place_bottle: bool;\n\n    sequence{\n        do NavTo(robot_name=\"CAR\", x=1.8497391827655587, y=1.4997831388276834, tolerance=1.0; success->nav_crate);\n        check(nav_crate == true);\n\n        do Pick(robot_name=\"CAR\", object_name=\"FRONT_CRATE\"; success->pick_crate);\n        check(pick_crate == true);\n\n        do NavTo(robot_name=\"CAR\", x=-1.9999700483276848, y=-1.799969434030035, tolerance=1.0; success->nav_zone);\n        check(nav_zone == true);\n\n        do Place(robot_name=\"CAR\", object_name=\"FRONT_CRATE\", location_name=\"TEMP_ZONE\"; success->place_crate);\n        check(place_crate == true);\n\n        do NavTo(robot_name=\"CAR\", x=2.55, y=1.5, tolerance=1.0; success->nav_bottle);\n        check(nav_bottle == true);\n\n        do Pick(robot_name=\"CAR\", object_name=\"MEDICINE_BOTTLE\"; success->pick_bottle);\n        check(pick_bottle == true);\n\n        do NavTo(robot_name=\"CAR\", x=-2.3, y=2.0, tolerance=1.0; success->nav_table);\n        check(nav_table == true);\n\n        do Place(robot_name=\"CAR\", object_name=\"MEDICINE_BOTTLE\", location_name=\"MEDICAL_TABLE\"; success->place_bottle);\n        check(place_bottle == true);\n    }\n}",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 1,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 1,
+  "manual_notes": ""
+}

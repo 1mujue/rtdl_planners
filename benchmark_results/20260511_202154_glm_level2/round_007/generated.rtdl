@@ -1,0 +1,39 @@
+def task PlaceMedicine(;){
+    state pick_success1: bool;
+    state msg1: string;
+    state nav_success1: bool;
+    state msg2: string;
+    state place_success1: bool;
+    state msg3: string;
+    state nav_success2: bool;
+    state msg4: string;
+    state pick_success2: bool;
+    state msg5: string;
+    state nav_success3: bool;
+    state msg6: string;
+    state place_success2: bool;
+    state msg7: string;
+
+    sequence{
+        do Pick(robot_name="CAR", object_name="FRONT_CRATE"; success->pick_success1, message->msg1);
+        check(pick_success1 == true);
+
+        do NavTo(robot_name="CAR", x=-2.0, y=-1.8, tolerance=1.5; success->nav_success1, message->msg2);
+        check(nav_success1 == true);
+
+        do Place(robot_name="CAR", object_name="FRONT_CRATE", location_name="TEMP_ZONE"; success->place_success1, message->msg3);
+        check(place_success1 == true);
+
+        do NavTo(robot_name="CAR", x=2.55, y=1.5, tolerance=1.5; success->nav_success2, message->msg4);
+        check(nav_success2 == true);
+
+        do Pick(robot_name="CAR", object_name="MEDICINE_BOTTLE"; success->pick_success2, message->msg5);
+        check(pick_success2 == true);
+
+        do NavTo(robot_name="CAR", x=-2.3, y=2.0, tolerance=1.5; success->nav_success3, message->msg6);
+        check(nav_success3 == true);
+
+        do Place(robot_name="CAR", object_name="MEDICINE_BOTTLE", location_name="MEDICAL_TABLE"; success->place_success2, message->msg7);
+        check(place_success2 == true);
+    }
+}

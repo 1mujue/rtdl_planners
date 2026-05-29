@@ -1,0 +1,37 @@
+def task RemoveMiddleBox(;){
+    state nav1_success: bool;
+    state nav1_message: string;
+    state pick_top_success: bool;
+    state pick_top_message: string;
+    state nav2_success: bool;
+    state nav2_message: string;
+    state place_top_success: bool;
+    state place_top_message: string;
+    state nav3_success: bool;
+    state nav3_message: string;
+    state pick_middle_success: bool;
+    state pick_middle_message: string;
+    state nav4_success: bool;
+    state nav4_message: string;
+    state place_middle_success: bool;
+    state place_middle_message: string;
+
+    sequence{
+        retry(3) do NavTo(robot_name="CAR",x=2.0000000000013824,y=-1.0013024787515261,tolerance=0.5;success->nav1_success,message->nav1_message);
+        check(nav1_success == true);
+        retry(3) do Pick(robot_name="CAR",object_name="BOX_TOP";success->pick_top_success,message->pick_top_message);
+        check(pick_top_success == true);
+        retry(3) do NavTo(robot_name="CAR",x=-2.2,y=-1.8,tolerance=0.5;success->nav2_success,message->nav2_message);
+        check(nav2_success == true);
+        retry(3) do Place(robot_name="CAR",object_name="BOX_TOP",location_name="TEMP_TABLE";success->place_top_success,message->place_top_message);
+        check(place_top_success == true);
+        retry(3) do NavTo(robot_name="CAR",x=2.0000000000000586,y=-1.0000719933382995,tolerance=0.5;success->nav3_success,message->nav3_message);
+        check(nav3_success == true);
+        retry(3) do Pick(robot_name="CAR",object_name="BOX_MIDDLE";success->pick_middle_success,message->pick_middle_message);
+        check(pick_middle_success == true);
+        retry(3) do NavTo(robot_name="CAR",x=-2.2,y=2.0,tolerance=0.5;success->nav4_success,message->nav4_message);
+        check(nav4_success == true);
+        retry(3) do Place(robot_name="CAR",object_name="BOX_MIDDLE",location_name="INSPECTION_TABLE";success->place_middle_success,message->place_middle_message);
+        check(place_middle_success == true);
+    }
+}

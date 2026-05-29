@@ -1,0 +1,28 @@
+{
+  "round": 8,
+  "model": "deepseek",
+  "level": 2,
+  "task": "Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.",
+  "status": "rtdl_invalid",
+  "llm_time_sec": 22.19351619400004,
+  "rtdl_valid": false,
+  "rtdl_error": "Some errors happened when compiling, it will be displayed here while also saved to error.txt\nSemantic Error at line 27: The ref: success7 doesn't exist.\nSemantic Error at line 27: The type of 'success7' is: double and it is incompatible with 'success', the type of which is bool.\nSemantic Error at line 27: The ref: message7 doesn't exist.\nSemantic Error at line 27: The type of 'message7' is: double and it is incompatible with 'message', the type of which is string.\nSemantic Error at line 28: The ref: success7 doesn't exist.\nSemantic Error at line 29: The ref: success8 doesn't exist.\nSemantic Error at line 29: The type of 'success8' is: string and it is incompatible with 'success', the type of which is bool.\nSemantic Error at line 29: The ref: message8 doesn't exist.\nSemantic Error at line 30: The ref: success8 doesn't exist.\n",
+  "execution_time_sec": null,
+  "execution_success": null,
+  "execution_message": null,
+  "plan_summary": "The robot CAR navigates to the FRONT_CRATE, picks it up and places it in the TEMP_ZONE to clear the obstacle, then navigates to the MEDICINE_BOTTLE, picks it up, navigates to the MEDICAL_TABLE, and places it on the table.",
+  "assumptions": [
+    "FRONT_CRATE is graspable by the robot.",
+    "MEDICINE_BOTTLE is graspable by the robot.",
+    "The robot's interaction_distance is sufficient to reach all objects and locations after navigation.",
+    "The robot can hold only one object at a time, so it must first remove the crate before picking the bottle."
+  ],
+  "rtdl": "def task PlaceMedicineOnTable(;){\n    state success1: bool;\n    state message1: string;\n    state success2: bool;\n    state message2: string;\n    state success3: bool;\n    state message3: string;\n    state success4: bool;\n    state message4: string;\n    state success5: bool;\n    state message5: string;\n    state success6: bool;\n    state message6: string;\n    sequence{\n        do NavTo(robot_name=\"CAR\",x=1.8499831034673937,y=1.4999916942537546,tolerance=0.5;success->success1,message->message1);\n        check(success1 == true);\n        do Pick(robot_name=\"CAR\",object_name=\"FRONT_CRATE\";success->success2,message->message2);\n        check(success2 == true);\n        do NavTo(robot_name=\"CAR\",x=-1.9999999997832358,y=-1.7999999997788465,tolerance=0.5;success->success3,message->message3);\n        check(success3 == true);\n        do Place(robot_name=\"CAR\",object_name=\"FRONT_CRATE\",location_name=\"TEMP_ZONE\";success->success4,message->message4);\n        check(success4 == true);\n        do NavTo(robot_name=\"CAR\",x=2.55,y=1.5,tolerance=0.5;success->success5,message->message5);\n        check(success5 == true);\n        do Pick(robot_name=\"CAR\",object_name=\"MEDICINE_BOTTLE\";success->success6,message->message6);\n        check(success6 == true);\n        do NavTo(robot_name=\"CAR\",x=-2.3,y=2.0,tolerance=0.5;success->success7,message->message7);\n        check(success7 == true);\n        do Place(robot_name=\"CAR\",object_name=\"MEDICINE_BOTTLE\",location_name=\"MEDICAL_TABLE\";success->success8,message->message8);\n        check(success8 == true);\n    }\n}",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 1,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": null,
+  "manual_notes": ""
+}

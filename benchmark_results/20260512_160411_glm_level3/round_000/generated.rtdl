@@ -1,0 +1,56 @@
+def task Task(;){
+    state nav_ok: bool;
+    state pick_ok: bool;
+    state place_ok: bool;
+    state msg: string;
+
+    sequence{
+        // 1. Navigate to box stack area
+        do NavTo(robot_name="CAR", x=1.0, y=-1.0, tolerance=0.5; success->nav_ok, message->msg);
+        check(nav_ok == true);
+
+        // 2. Pick BOX_TOP (top of stack)
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->pick_ok, message->msg);
+        check(pick_ok == true);
+
+        // 3. Navigate to TEMP_TABLE area
+        do NavTo(robot_name="CAR", x=-1.2, y=-1.8, tolerance=0.5; success->nav_ok, message->msg);
+        check(nav_ok == true);
+
+        // 4. Place BOX_TOP on TEMP_TABLE temporarily
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="TEMP_TABLE"; success->place_ok, message->msg);
+        check(place_ok == true);
+
+        // 5. Navigate back to box stack area
+        do NavTo(robot_name="CAR", x=1.0, y=-1.0, tolerance=0.5; success->nav_ok, message->msg);
+        check(nav_ok == true);
+
+        // 6. Pick BOX_MIDDLE (now top of remaining stack)
+        do Pick(robot_name="CAR", object_name="BOX_MIDDLE"; success->pick_ok, message->msg);
+        check(pick_ok == true);
+
+        // 7. Navigate to INSPECTION_TABLE area
+        do NavTo(robot_name="CAR", x=-1.2, y=2.0, tolerance=0.5; success->nav_ok, message->msg);
+        check(nav_ok == true);
+
+        // 8. Place BOX_MIDDLE on INSPECTION_TABLE
+        do Place(robot_name="CAR", object_name="BOX_MIDDLE", location_name="INSPECTION_TABLE"; success->place_ok, message->msg);
+        check(place_ok == true);
+
+        // 9. Navigate to TEMP_TABLE area to retrieve BOX_TOP
+        do NavTo(robot_name="CAR", x=-1.2, y=-1.8, tolerance=0.5; success->nav_ok, message->msg);
+        check(nav_ok == true);
+
+        // 10. Pick BOX_TOP from TEMP_TABLE
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->pick_ok, message->msg);
+        check(pick_ok == true);
+
+        // 11. Navigate back to box stack area (where BOX_BOTTOM is)
+        do NavTo(robot_name="CAR", x=1.0, y=-1.0, tolerance=0.5; success->nav_ok, message->msg);
+        check(nav_ok == true);
+
+        // 12. Place BOX_TOP back on BOX_BOTTOM to restore stack
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="BOX_BOTTOM"; success->place_ok, message->msg);
+        check(place_ok == true);
+    }
+}

@@ -1,0 +1,30 @@
+def task ExtractMiddleBox(;){
+    state ok: bool;
+    state msg: string;
+    sequence{
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->ok, message->msg);
+        check(ok == true);
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->ok, message->msg);
+        check(ok == true);
+        do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=0.5; success->ok, message->msg);
+        check(ok == true);
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="TEMP_TABLE"; success->ok, message->msg);
+        check(ok == true);
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->ok, message->msg);
+        check(ok == true);
+        do Pick(robot_name="CAR", object_name="BOX_MIDDLE"; success->ok, message->msg);
+        check(ok == true);
+        do NavTo(robot_name="CAR", x=-2.2, y=2.0, tolerance=0.5; success->ok, message->msg);
+        check(ok == true);
+        do Place(robot_name="CAR", object_name="BOX_MIDDLE", location_name="INSPECTION_TABLE"; success->ok, message->msg);
+        check(ok == true);
+        do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=0.5; success->ok, message->msg);
+        check(ok == true);
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->ok, message->msg);
+        check(ok == true);
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->ok, message->msg);
+        check(ok == true);
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="BOX_BOTTOM"; success->ok, message->msg);
+        check(ok == true);
+    }
+}

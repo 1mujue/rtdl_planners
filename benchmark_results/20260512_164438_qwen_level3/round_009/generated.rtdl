@@ -1,0 +1,29 @@
+def task remove_middle_box(;){
+    state n1: bool;
+    state p1: bool;
+    state n2: bool;
+    state pl1: bool;
+    state n3: bool;
+    state p2: bool;
+    state n4: bool;
+    state pl2: bool;
+    state n5: bool;
+    state p3: bool;
+    state n6: bool;
+    state pl3: bool;
+
+    sequence{
+        do NavTo(robot_name="CAR",x=2.0,y=-1.0,tolerance=0.5;success->n1);
+        do Pick(robot_name="CAR",object_name="BOX_TOP";success->p1);
+        do NavTo(robot_name="CAR",x=-2.2,y=-1.8,tolerance=0.5;success->n2);
+        do Place(robot_name="CAR",object_name="BOX_TOP",location_name="TEMP_TABLE";success->pl1);
+        do NavTo(robot_name="CAR",x=2.0,y=-1.0,tolerance=0.5;success->n3);
+        do Pick(robot_name="CAR",object_name="BOX_MIDDLE";success->p2);
+        do NavTo(robot_name="CAR",x=-2.2,y=2.0,tolerance=0.5;success->n4);
+        do Place(robot_name="CAR",object_name="BOX_MIDDLE",location_name="INSPECTION_TABLE";success->pl2);
+        do NavTo(robot_name="CAR",x=-2.2,y=-1.8,tolerance=0.5;success->n5);
+        do Pick(robot_name="CAR",object_name="BOX_TOP";success->p3);
+        do NavTo(robot_name="CAR",x=2.0,y=-1.0,tolerance=0.5;success->n6);
+        do Place(robot_name="CAR",object_name="BOX_TOP",location_name="BOX_BOTTOM";success->pl3);
+    }
+}

@@ -1,0 +1,37 @@
+def task RemoveMiddleBox(;){
+    state nav_box_success: bool;
+    state nav_box_message: string;
+    state pick_top_success: bool;
+    state pick_top_message: string;
+    state nav_temp_success: bool;
+    state nav_temp_message: string;
+    state place_top_success: bool;
+    state place_top_message: string;
+    state nav_box2_success: bool;
+    state nav_box2_message: string;
+    state pick_middle_success: bool;
+    state pick_middle_message: string;
+    state nav_inspect_success: bool;
+    state nav_inspect_message: string;
+    state place_middle_success: bool;
+    state place_middle_message: string;
+
+    sequence{
+        retry(3) do NavTo(robot_name="CAR",x=2.0,y=-1.0,tolerance=0.5;success->nav_box_success,message->nav_box_message);
+        check(nav_box_success == true);
+        retry(3) do Pick(robot_name="CAR",object_name="BOX_TOP";success->pick_top_success,message->pick_top_message);
+        check(pick_top_success == true);
+        retry(3) do NavTo(robot_name="CAR",x=-2.2,y=-1.8,tolerance=0.5;success->nav_temp_success,message->nav_temp_message);
+        check(nav_temp_success == true);
+        retry(3) do Place(robot_name="CAR",object_name="BOX_TOP",location_name="TEMP_TABLE";success->place_top_success,message->place_top_message);
+        check(place_top_success == true);
+        retry(3) do NavTo(robot_name="CAR",x=2.0,y=-1.0,tolerance=0.5;success->nav_box2_success,message->nav_box2_message);
+        check(nav_box2_success == true);
+        retry(3) do Pick(robot_name="CAR",object_name="BOX_MIDDLE";success->pick_middle_success,message->pick_middle_message);
+        check(pick_middle_success == true);
+        retry(3) do NavTo(robot_name="CAR",x=-2.2,y=2.0,tolerance=0.5;success->nav_inspect_success,message->nav_inspect_message);
+        check(nav_inspect_success == true);
+        retry(3) do Place(robot_name="CAR",object_name="BOX_MIDDLE",location_name="INSPECTION_TABLE";success->place_middle_success,message->place_middle_message);
+        check(place_middle_success == true);
+    }
+}

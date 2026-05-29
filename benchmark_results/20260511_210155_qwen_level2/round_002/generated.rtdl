@@ -1,0 +1,22 @@
+def task PlaceMedicineBottle(;){
+    state success: bool;
+    state msg: string;
+    sequence{
+        retry(3) do NavTo(robot_name="CAR", x=1.8497392452906012, y=1.4997831962339034, tolerance=0.2; success->success, message->msg);
+        check(success == true);
+        retry(3) do Pick(robot_name="CAR", object_name="FRONT_CRATE"; success->success, message->msg);
+        check(success == true);
+        retry(3) do NavTo(robot_name="CAR", x=-1.9999701862608068, y=-1.799969600083114, tolerance=0.2; success->success, message->msg);
+        check(success == true);
+        retry(3) do Place(robot_name="CAR", object_name="FRONT_CRATE", location_name="TEMP_ZONE"; success->success, message->msg);
+        check(success == true);
+        retry(3) do NavTo(robot_name="CAR", x=2.55, y=1.5, tolerance=0.2; success->success, message->msg);
+        check(success == true);
+        retry(3) do Pick(robot_name="CAR", object_name="MEDICINE_BOTTLE"; success->success, message->msg);
+        check(success == true);
+        retry(3) do NavTo(robot_name="CAR", x=-2.3, y=2.0, tolerance=0.2; success->success, message->msg);
+        check(success == true);
+        retry(3) do Place(robot_name="CAR", object_name="MEDICINE_BOTTLE", location_name="MEDICAL_TABLE"; success->success, message->msg);
+        check(success == true);
+    }
+}

@@ -1,0 +1,52 @@
+def task remove_middle_box(;){
+    state success_nav1: bool;
+    state msg_nav1: string;
+    state success_pick_top: bool;
+    state msg_pick_top: string;
+    state success_nav2: bool;
+    state msg_nav2: string;
+    state success_place_top: bool;
+    state msg_place_top: string;
+    state success_nav3: bool;
+    state msg_nav3: string;
+    state success_pick_middle: bool;
+    state msg_pick_middle: string;
+    state success_nav4: bool;
+    state msg_nav4: string;
+    state success_place_middle: bool;
+    state msg_place_middle: string;
+    state success_nav5: bool;
+    state msg_nav5: string;
+    state success_pick_top_again: bool;
+    state msg_pick_top_again: string;
+    state success_nav6: bool;
+    state msg_nav6: string;
+    state success_place_top_back: bool;
+    state msg_place_top_back: string;
+
+    sequence{
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->success_nav1, message->msg_nav1);
+        check(success_nav1 == true);
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->success_pick_top, message->msg_pick_top);
+        check(success_pick_top == true);
+        do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=0.5; success->success_nav2, message->msg_nav2);
+        check(success_nav2 == true);
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="TEMP_TABLE"; success->success_place_top, message->msg_place_top);
+        check(success_place_top == true);
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->success_nav3, message->msg_nav3);
+        check(success_nav3 == true);
+        do Pick(robot_name="CAR", object_name="BOX_MIDDLE"; success->success_pick_middle, message->msg_pick_middle);
+        check(success_pick_middle == true);
+        do NavTo(robot_name="CAR", x=-2.2, y=2.0, tolerance=0.5; success->success_nav4, message->msg_nav4);
+        check(success_nav4 == true);
+        do Place(robot_name="CAR", object_name="BOX_MIDDLE", location_name="INSPECTION_TABLE"; success->success_place_middle, message->msg_place_middle);
+        check(success_place_middle == true);
+        do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=0.5; success->success_nav5, message->msg_nav5);
+        check(success_nav5 == true);
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->success_pick_top_again, message->msg_pick_top_again);
+        check(success_pick_top_again == true);
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->success_nav6, message->msg_nav6);
+        check(success_nav6 == true);
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="BOX_BOTTOM"; success->success_place_top_back, message->msg_place_top_back);
+    }
+}

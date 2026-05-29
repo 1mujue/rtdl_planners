@@ -1,0 +1,40 @@
+def task PlaceMedicineAfterObstacleRemoval(;){
+    state success1: bool;
+    state msg1: string;
+    state success2: bool;
+    state msg2: string;
+    state success3: bool;
+    state msg3: string;
+    state success4: bool;
+    state msg4: string;
+    state success5: bool;
+    state msg5: string;
+    state success6: bool;
+    state msg6: string;
+
+    sequence{
+        # Navigate to FRONT_CRATE (near (1.85, 1.5))
+        do NavTo(robot_name="CAR", x=1.85, y=1.5, tolerance=2.0; success->success1, message->msg1);
+        check(success1 == true);
+        # Pick up FRONT_CRATE
+        do Pick(robot_name="CAR", object_name="FRONT_CRATE"; success->success2, message->msg2);
+        check(success2 == true);
+        # Navigate to TEMP_ZONE (near (-2.0, -1.8))
+        do NavTo(robot_name="CAR", x=-2.0, y=-1.8, tolerance=2.0; success->success3, message->msg3);
+        check(success3 == true);
+        # Place FRONT_CRATE on TEMP_ZONE
+        do Place(robot_name="CAR", object_name="FRONT_CRATE", location_name="TEMP_ZONE"; success->success4, message->msg4);
+        check(success4 == true);
+        # Navigate to MEDICINE_BOTTLE (near (2.55, 1.5))
+        do NavTo(robot_name="CAR", x=2.55, y=1.5, tolerance=2.0; success->success5, message->msg5);
+        check(success5 == true);
+        # Pick up MEDICINE_BOTTLE
+        do Pick(robot_name="CAR", object_name="MEDICINE_BOTTLE"; success->success6, message->msg6);
+        check(success6 == true);
+        # Navigate to MEDICAL_TABLE (near (-2.3, 2.0))
+        do NavTo(robot_name="CAR", x=-2.3, y=2.0, tolerance=2.0; success->success7, message->msg7);
+        check(success7 == true);
+        # Place MEDICINE_BOTTLE on MEDICAL_TABLE
+        do Place(robot_name="CAR", object_name="MEDICINE_BOTTLE", location_name="MEDICAL_TABLE"; success->success8, message->msg8);
+    }
+}

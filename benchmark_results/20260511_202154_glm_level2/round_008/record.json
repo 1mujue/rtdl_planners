@@ -1,0 +1,28 @@
+{
+  "round": 8,
+  "model": "glm",
+  "level": 2,
+  "task": "Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.",
+  "status": "executed",
+  "llm_time_sec": 93.76783875399997,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 30.056320149000385,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "Remove the FRONT_CRATE obstacle by picking it and placing it at TEMP_ZONE, then navigate to MEDICINE_BOTTLE, pick it up, navigate to MEDICAL_TABLE, and place the MEDICINE_BOTTLE on it.",
+  "assumptions": [
+    "FRONT_CRATE is the obstacle in front of CAR",
+    "FRONT_CRATE is graspable by CAR",
+    "CAR can reach FRONT_CRATE from its current position (within interaction_distance of 2.0)",
+    "TEMP_ZONE is a valid location to place the removed obstacle"
+  ],
+  "rtdl": "def task PlaceMedicineOnTable(;){\n    state pick1_ok: bool;\n    state nav1_ok: bool;\n    state place1_ok: bool;\n    state nav2_ok: bool;\n    state pick2_ok: bool;\n    state nav3_ok: bool;\n    state place2_ok: bool;\n\n    sequence{\n        do Pick(robot_name=\"CAR\", object_name=\"FRONT_CRATE\"; success->pick1_ok);\n        check(pick1_ok == true);\n        do NavTo(robot_name=\"CAR\", x=-2.0, y=-1.8, tolerance=2.0; success->nav1_ok);\n        check(nav1_ok == true);\n        do Place(robot_name=\"CAR\", object_name=\"FRONT_CRATE\", location_name=\"TEMP_ZONE\"; success->place1_ok);\n        check(place1_ok == true);\n        do NavTo(robot_name=\"CAR\", x=2.55, y=1.5, tolerance=2.0; success->nav2_ok);\n        check(nav2_ok == true);\n        do Pick(robot_name=\"CAR\", object_name=\"MEDICINE_BOTTLE\"; success->pick2_ok);\n        check(pick2_ok == true);\n        do NavTo(robot_name=\"CAR\", x=-2.3, y=2.0, tolerance=2.0; success->nav3_ok);\n        check(nav3_ok == true);\n        do Place(robot_name=\"CAR\", object_name=\"MEDICINE_BOTTLE\", location_name=\"MEDICAL_TABLE\"; success->place2_ok);\n        check(place2_ok == true);\n    }\n}",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 1,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 0,
+  "manual_notes": ""
+}

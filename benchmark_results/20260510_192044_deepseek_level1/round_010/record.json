@@ -1,0 +1,27 @@
+{
+  "round": 10,
+  "model": "deepseek",
+  "level": 1,
+  "task": "Pick up the CUP and place it on the TABLE.",
+  "status": "executed",
+  "llm_time_sec": 12.698821916000043,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 27.16230083000005,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "The robot CAR navigates to the CUP, picks it up, navigates to the TABLE, then places the CUP on the TABLE.",
+  "assumptions": [
+    "The CUP is graspable by the robot CAR.",
+    "The robot can navigate to the CUP's location and then to the TABLE's location.",
+    "The CUP and TABLE are within the robot's interaction distance after navigation."
+  ],
+  "rtdl": "def task PickAndPlace(;){\n    state nav_success: bool;\n    state pick_success: bool;\n    state place_success: bool;\n    state msg: string;\n\n    sequence{\n        do NavTo(robot_name=\"CAR\", x=2.0, y=2.0, tolerance=0.5; success->nav_success, message->msg);\n        check(nav_success == true);\n        do Pick(robot_name=\"CAR\", object_name=\"CUP\"; success->pick_success, message->msg);\n        check(pick_success == true);\n        do NavTo(robot_name=\"CAR\", x=-1.9997112973476918, y=1.9999987729429505, tolerance=0.5; success->nav_success, message->msg);\n        check(nav_success == true);\n        do Place(robot_name=\"CAR\", object_name=\"CUP\", location_name=\"TABLE\"; success->place_success, message->msg);\n        check(place_success == true);\n    }\n}",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 1,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 1,
+  "manual_notes": ""
+}

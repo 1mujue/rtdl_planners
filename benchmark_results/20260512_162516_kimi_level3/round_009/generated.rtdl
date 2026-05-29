@@ -1,0 +1,28 @@
+def task MoveMiddleBoxToInspection(;){ state nav_success: bool; state nav_msg: string; state pick_success: bool; state pick_msg: string; state place_success: bool; state place_msg: string; 
+sequence{ 
+    do NavTo(robot_name="CAR",x=2.0,y=-1.0,tolerance=0.5;success->nav_success,message->nav_msg); 
+    check(nav_success == true); 
+    do Pick(robot_name="CAR",object_name="BOX_TOP";success->pick_success,message->pick_msg); 
+    check(pick_success == true); 
+    do NavTo(robot_name="CAR",x=-2.2,y=2.0,tolerance=0.5;success->nav_success,message->nav_msg); 
+    check(nav_success == true); 
+    do Place(robot_name="CAR",object_name="BOX_TOP",location_name="INSPECTION_TABLE";success->place_success,message->place_msg); 
+    check(place_success == true); 
+    do NavTo(robot_name="CAR",x=2.0,y=-1.0,tolerance=0.5;success->nav_success,message->nav_msg); 
+    check(nav_success == true); 
+    do Pick(robot_name="CAR",object_name="BOX_MIDDLE";success->pick_success,message->pick_msg); 
+    check(pick_success == true); 
+    do NavTo(robot_name="CAR",x=-2.2,y=2.0,tolerance=0.5;success->nav_success,message->nav_msg); 
+    check(nav_success == true); 
+    do Place(robot_name="CAR",object_name="BOX_MIDDLE",location_name="INSPECTION_TABLE";success->place_success,message->place_msg); 
+    check(place_success == true); 
+    do NavTo(robot_name="CAR",x=-2.2,y=2.0,tolerance=0.5;success->nav_success,message->nav_msg); 
+    check(nav_success == true); 
+    do Pick(robot_name="CAR",object_name="BOX_TOP";success->pick_success,message->pick_msg); 
+    check(pick_success == true); 
+    do NavTo(robot_name="CAR",x=2.0,y=-1.0,tolerance=0.5;success->nav_success,message->nav_msg); 
+    check(nav_success == true); 
+    do Place(robot_name="CAR",object_name="BOX_TOP",location_name="BOX_BOTTOM";success->place_success,message->place_msg); 
+    check(place_success == true); 
+    } 
+}

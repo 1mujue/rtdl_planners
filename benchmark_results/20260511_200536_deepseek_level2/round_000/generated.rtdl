@@ -1,0 +1,20 @@
+def task place_medicine_on_table(;){
+    state success1: bool;
+    state msg1: string;
+    state success2: bool;
+    state msg2: string;
+    state success3: bool;
+    state msg3: string;
+    state success4: bool;
+    state msg4: string;
+
+    sequence{
+        do NavTo(robot_name="CAR", x=2.55, y=1.5, tolerance=0.5; success->success1, message->msg1);
+        check(success1 == true);
+        do Pick(robot_name="CAR", object_name="MEDICINE_BOTTLE"; success->success2, message->msg2);
+        check(success2 == true);
+        do NavTo(robot_name="CAR", x=-2.3, y=2.0, tolerance=0.5; success->success3, message->msg3);
+        check(success3 == true);
+        do Place(robot_name="CAR", object_name="MEDICINE_BOTTLE", location_name="MEDICAL_TABLE"; success->success4, message->msg4);
+    }
+}

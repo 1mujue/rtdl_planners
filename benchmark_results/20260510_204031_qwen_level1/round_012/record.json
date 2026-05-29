@@ -1,0 +1,27 @@
+{
+  "round": 12,
+  "model": "qwen",
+  "level": 1,
+  "task": "Pick up the CUP and place it on the TABLE.",
+  "status": "executed",
+  "llm_time_sec": 83.27111522800078,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 27.3253361269999,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "Navigate CAR to the CUP's location, pick it up, navigate to the TABLE's location, and place the CUP on the TABLE.",
+  "assumptions": [
+    "The environment is free of dynamic obstacles that would block navigation.",
+    "The robot's interaction distance of 2.0 is sufficient for picking the CUP and placing it on the TABLE after navigating within 0.5 tolerance.",
+    "The CUP is graspable and the TABLE surface is valid for placement."
+  ],
+  "rtdl": "def task PickAndPlaceCup(;){\n    state nav_cup_success: bool;\n    state nav_cup_msg: string;\n    state pick_success: bool;\n    state pick_msg: string;\n    state nav_table_success: bool;\n    state nav_table_msg: string;\n    state place_success: bool;\n    state place_msg: string;\n\n    sequence{\n        do NavTo(robot_name=\"CAR\", x=2.000001366514643, y=1.9999999655414507, tolerance=0.5; success->nav_cup_success, message->nav_cup_msg);\n        check(nav_cup_success == true);\n        do Pick(robot_name=\"CAR\", object_name=\"CUP\"; success->pick_success, message->pick_msg);\n        check(pick_success == true);\n        do NavTo(robot_name=\"CAR\", x=-2.0000000759935563, y=2.000000000310521, tolerance=0.5; success->nav_table_success, message->nav_table_msg);\n        check(nav_table_success == true);\n        do Place(robot_name=\"CAR\", object_name=\"CUP\", location_name=\"TABLE\"; success->place_success, message->place_msg);\n    }\n}",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 0.75,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 1,
+  "manual_notes": ""
+}

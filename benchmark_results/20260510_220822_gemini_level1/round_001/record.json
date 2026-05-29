@@ -1,0 +1,26 @@
+{
+  "round": 1,
+  "model": "gemini",
+  "level": 1,
+  "task": "Pick up the CUP and place it on the TABLE.",
+  "status": "executed",
+  "llm_time_sec": 18.704367491000085,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 26.605707541000015,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "Navigate to the CUP, pick it up, navigate to the TABLE, and place the CUP on the TABLE.",
+  "assumptions": [
+    "Navigating to coordinates with a 0.5m tolerance is sufficient to be within the robot's 2.0m interaction range.",
+    "Navigation could transiently fail, so retries are useful."
+  ],
+  "rtdl": "def task PickAndPlace(;){\n    state nav1_succ: bool;\n    state nav1_msg: string;\n    state pick_succ: bool;\n    state pick_msg: string;\n    state nav2_succ: bool;\n    state nav2_msg: string;\n    state place_succ: bool;\n    state place_msg: string;\n\n    sequence{\n        retry(3) do NavTo(robot_name=\"CAR\", x=2.0, y=2.0, tolerance=0.5; success->nav1_succ, message->nav1_msg);\n        check(nav1_succ == true);\n        do Pick(robot_name=\"CAR\", object_name=\"CUP\"; success->pick_succ, message->pick_msg);\n        check(pick_succ == true);\n        retry(3) do NavTo(robot_name=\"CAR\", x=-2.0, y=2.0, tolerance=0.5; success->nav2_succ, message->nav2_msg);\n        check(nav2_succ == true);\n        do Place(robot_name=\"CAR\", object_name=\"CUP\", location_name=\"TABLE\"; success->place_succ, message->place_msg);\n        check(place_succ == true);\n    }\n}",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 1,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 1,
+  "manual_notes": ""
+}

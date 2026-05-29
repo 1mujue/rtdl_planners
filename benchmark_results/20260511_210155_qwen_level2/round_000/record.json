@@ -1,0 +1,27 @@
+{
+  "round": 0,
+  "model": "qwen",
+  "level": 2,
+  "task": "Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.",
+  "status": "executed",
+  "llm_time_sec": 166.9652966349995,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 53.44445704699956,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "Remove the FRONT_CRATE obstacle by placing it on TEMP_ZONE, then navigate to pick up the MEDICINE_BOTTLE and place it on the MEDICAL_TABLE.",
+  "assumptions": [
+    "FRONT_CRATE is the obstacle in front of CAR.",
+    "TEMP_ZONE is a valid location to place the removed obstacle.",
+    "CAR can reach MEDICINE_BOTTLE and MEDICAL_TABLE via NavTo within tolerance."
+  ],
+  "rtdl": "def task place_medicine_bottle(;){\n    state s1: bool;\n    state s2: bool;\n    state s3: bool;\n    state s4: bool;\n    state s5: bool;\n    state s6: bool;\n    state s7: bool;\n    sequence{\n        do Pick(robot_name=\"CAR\", object_name=\"FRONT_CRATE\"; success->s1);\n        check(s1 == true);\n        do NavTo(robot_name=\"CAR\", x=-2.0, y=-1.8, tolerance=0.5; success->s2);\n        check(s2 == true);\n        do Place(robot_name=\"CAR\", object_name=\"FRONT_CRATE\", location_name=\"TEMP_ZONE\"; success->s3);\n        check(s3 == true);\n        do NavTo(robot_name=\"CAR\", x=2.55, y=1.5, tolerance=0.5; success->s4);\n        check(s4 == true);\n        do Pick(robot_name=\"CAR\", object_name=\"MEDICINE_BOTTLE\"; success->s5);\n        check(s5 == true);\n        do NavTo(robot_name=\"CAR\", x=-2.3, y=2.0, tolerance=0.5; success->s6);\n        check(s6 == true);\n        do Place(robot_name=\"CAR\", object_name=\"MEDICINE_BOTTLE\", location_name=\"MEDICAL_TABLE\"; success->s7);\n        check(s7 == true);\n    }\n}",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 1,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 1,
+  "manual_notes": ""
+}

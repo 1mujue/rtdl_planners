@@ -1,0 +1,7 @@
+{
+  "model": "gemini",
+  "level": 2,
+  "task": "Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.",
+  "repeat": 10,
+  "created_at": "20260511_215907"
+}

@@ -1,0 +1,28 @@
+{
+  "round": 3,
+  "model": "qwen",
+  "level": 3,
+  "task": "Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",
+  "status": "executed",
+  "llm_time_sec": 121.99328360599975,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 87.3114863210003,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "Navigate to box stack, remove BOX_TOP to TEMP_TABLE to satisfy stack constraint, pick BOX_MIDDLE and place it on INSPECTION_TABLE, then retrieve BOX_TOP from TEMP_TABLE and place it back on BOX_BOTTOM to restore the stack without the middle box.",
+  "assumptions": [
+    "BOX_TOP must be removed first because only the top box of a stack can be picked.",
+    "TEMP_TABLE is a valid temporary location for BOX_TOP.",
+    "INSPECTION_TABLE is the target destination for BOX_MIDDLE.",
+    "BOX_BOTTOM remains stationary as the base of the stack."
+  ],
+  "rtdl": "def task MoveMiddleBox(;){\n    state ok: bool;\n    state msg: string;\n    sequence{\n        do NavTo(robot_name=\"CAR\", x=2.0, y=-1.0, tolerance=0.5; success->ok, message->msg);\n        check(ok == true);\n        do Pick(robot_name=\"CAR\", object_name=\"BOX_TOP\"; success->ok, message->msg);\n        check(ok == true);\n        do NavTo(robot_name=\"CAR\", x=-2.2, y=-1.8, tolerance=0.5; success->ok, message->msg);\n        check(ok == true);\n        do Place(robot_name=\"CAR\", object_name=\"BOX_TOP\", location_name=\"TEMP_TABLE\"; success->ok, message->msg);\n        check(ok == true);\n        do NavTo(robot_name=\"CAR\", x=2.0, y=-1.0, tolerance=0.5; success->ok, message->msg);\n        check(ok == true);\n        do Pick(robot_name=\"CAR\", object_name=\"BOX_MIDDLE\"; success->ok, message->msg);\n        check(ok == true);\n        do NavTo(robot_name=\"CAR\", x=-2.2, y=2.0, tolerance=0.5; success->ok, message->msg);\n        check(ok == true);\n        do Place(robot_name=\"CAR\", object_name=\"BOX_MIDDLE\", location_name=\"INSPECTION_TABLE\"; success->ok, message->msg);\n        check(ok == true);\n        do NavTo(robot_name=\"CAR\", x=-2.2, y=-1.8, tolerance=0.5; success->ok, message->msg);\n        check(ok == true);\n        do Pick(robot_name=\"CAR\", object_name=\"BOX_TOP\"; success->ok, message->msg);\n        check(ok == true);\n        do NavTo(robot_name=\"CAR\", x=2.0, y=-1.0, tolerance=0.5; success->ok, message->msg);\n        check(ok == true);\n        do Place(robot_name=\"CAR\", object_name=\"BOX_TOP\", location_name=\"BOX_BOTTOM\"; success->ok, message->msg);\n    }\n}",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 1,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 1,
+  "manual_notes": ""
+}

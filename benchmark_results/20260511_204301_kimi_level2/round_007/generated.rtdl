@@ -1,0 +1,16 @@
+def task PlaceMedicineAfterObstacleRemoval(;){ state nav_success: bool; state nav_msg: string; state pick_success: bool; state pick_msg: string; state place_success: bool; state place_msg: string; 
+sequence{ 
+    do NavTo(robot_name="CAR",x=1.8499130917841957,y=1.4999306152426048,tolerance=0.5;success->nav_success,message->nav_msg); 
+    check(nav_success == true); 
+    do Pick(robot_name="CAR",object_name="FRONT_CRATE";success->pick_success,message->pick_msg); 
+    check(pick_success == true); 
+    do NavTo(robot_name="CAR",x=2.55,y=1.5,tolerance=0.5;success->nav_success,message->nav_msg); 
+    check(nav_success == true); 
+    do Pick(robot_name="CAR",object_name="MEDICINE_BOTTLE";success->pick_success,message->pick_msg); 
+    check(pick_success == true); 
+    do NavTo(robot_name="CAR",x=-2.3,y=2.0,tolerance=0.5;success->nav_success,message->nav_msg); 
+    check(nav_success == true); 
+    do Place(robot_name="CAR",object_name="MEDICINE_BOTTLE",location_name="MEDICAL_TABLE";success->place_success,message->place_msg); 
+    check(place_success == true); 
+    } 
+}

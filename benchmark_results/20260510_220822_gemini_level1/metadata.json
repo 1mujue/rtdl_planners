@@ -1,0 +1,7 @@
+{
+  "model": "gemini",
+  "level": 1,
+  "task": "Pick up the CUP and place it on the TABLE.",
+  "repeat": 20,
+  "created_at": "20260510_220826"
+}

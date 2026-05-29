@@ -1,0 +1,64 @@
+def task ReorderBoxStack(;){
+    state nav1_ok: bool;
+    state nav1_msg: string;
+    state pick1_ok: bool;
+    state pick1_msg: string;
+    state nav2_ok: bool;
+    state nav2_msg: string;
+    state place1_ok: bool;
+    state place1_msg: string;
+    state nav3_ok: bool;
+    state nav3_msg: string;
+    state pick2_ok: bool;
+    state pick2_msg: string;
+    state nav4_ok: bool;
+    state nav4_msg: string;
+    state place2_ok: bool;
+    state place2_msg: string;
+    state nav5_ok: bool;
+    state nav5_msg: string;
+    state pick3_ok: bool;
+    state pick3_msg: string;
+    state nav6_ok: bool;
+    state nav6_msg: string;
+    state place3_ok: bool;
+    state place3_msg: string;
+
+    sequence{
+        retry(3) do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->nav1_ok, message->nav1_msg);
+        check(nav1_ok == true);
+
+        retry(2) do Pick(robot_name="CAR", object_name="BOX_TOP"; success->pick1_ok, message->pick1_msg);
+        check(pick1_ok == true);
+
+        retry(3) do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=0.5; success->nav2_ok, message->nav2_msg);
+        check(nav2_ok == true);
+
+        retry(2) do Place(robot_name="CAR", object_name="BOX_TOP", location_name="TEMP_TABLE"; success->place1_ok, message->place1_msg);
+        check(place1_ok == true);
+
+        retry(3) do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->nav3_ok, message->nav3_msg);
+        check(nav3_ok == true);
+
+        retry(2) do Pick(robot_name="CAR", object_name="BOX_MIDDLE"; success->pick2_ok, message->pick2_msg);
+        check(pick2_ok == true);
+
+        retry(3) do NavTo(robot_name="CAR", x=-2.2, y=2.0, tolerance=0.5; success->nav4_ok, message->nav4_msg);
+        check(nav4_ok == true);
+
+        retry(2) do Place(robot_name="CAR", object_name="BOX_MIDDLE", location_name="INSPECTION_TABLE"; success->place2_ok, message->place2_msg);
+        check(place2_ok == true);
+
+        retry(3) do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=0.5; success->nav5_ok, message->nav5_msg);
+        check(nav5_ok == true);
+
+        retry(2) do Pick(robot_name="CAR", object_name="BOX_TOP"; success->pick3_ok, message->pick3_msg);
+        check(pick3_ok == true);
+
+        retry(3) do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->nav6_ok, message->nav6_msg);
+        check(nav6_ok == true);
+
+        retry(2) do Place(robot_name="CAR", object_name="BOX_TOP", location_name="BOX_BOTTOM"; success->place3_ok, message->place3_msg);
+        check(place3_ok == true);
+    }
+}

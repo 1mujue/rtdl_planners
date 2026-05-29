@@ -1,0 +1,28 @@
+{
+  "round": 4,
+  "model": "kimi",
+  "level": 1,
+  "task": "Pick up the CUP and place it on the TABLE.",
+  "status": "executed",
+  "llm_time_sec": 8.969557784000244,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 27.179758821999712,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "Navigate CAR to CUP, pick it up, then navigate to TABLE and place CUP on it",
+  "assumptions": [
+    "CAR is the only available robot",
+    "CUP is graspable and within interaction distance after navigation",
+    "TABLE is a valid placement location within interaction distance after navigation",
+    "Navigation to exact coordinates is possible with tolerance"
+  ],
+  "rtdl": "def task PickAndPlace(;){ state nav_to_cup_success: bool; state pick_success: bool; state nav_to_table_success: bool; state place_success: bool; state msg1: string; state msg2: string; state msg3: string; state msg4: string; sequence{ do NavTo(robot_name=\"CAR\",x=2.0,y=2.0,tolerance=0.5;success->nav_to_cup_success,message->msg1); check(nav_to_cup_success == true); do Pick(robot_name=\"CAR\",object_name=\"CUP\";success->pick_success,message->msg2); check(pick_success == true); do NavTo(robot_name=\"CAR\",x=-1.9995400353441444,y=1.9999987003712518,tolerance=0.5;success->nav_to_table_success,message->msg3); check(nav_to_table_success == true); do Place(robot_name=\"CAR\",object_name=\"CUP\",location_name=\"TABLE\";success->place_success,message->msg4); check(place_success == true); } }",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 1,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 1,
+  "manual_notes": ""
+}

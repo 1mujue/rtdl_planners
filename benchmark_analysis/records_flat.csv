@@ -1,0 +1,404 @@
+model,level,round,task,status,llm_time_sec,rtdl_valid,compiler_failed,execution_time_sec,execution_success,manual_logic_correct,manual_logic_completeness,manual_logic_score,manual_collision_observed,manual_notes,error_type,error_message,rtdl_error,source_file
+deepseek,1,0,Pick up the CUP and place it on the TABLE.,executed,8.5217,True,False,26.9926,True,1.0,0.75,0.925,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_000/record.json
+deepseek,1,1,Pick up the CUP and place it on the TABLE.,executed,11.6137,True,False,26.8428,True,1.0,0.75,0.925,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_001/record.json
+deepseek,1,2,Pick up the CUP and place it on the TABLE.,executed,10.1089,True,False,26.8899,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_002/record.json
+deepseek,1,3,Pick up the CUP and place it on the TABLE.,executed,13.0958,True,False,26.871,True,1.0,0.75,0.925,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_003/record.json
+deepseek,1,4,Pick up the CUP and place it on the TABLE.,executed,10.2154,True,False,26.6928,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_004/record.json
+deepseek,1,5,Pick up the CUP and place it on the TABLE.,executed,14.66,True,False,27.145,True,1.0,0.75,0.925,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_005/record.json
+deepseek,1,6,Pick up the CUP and place it on the TABLE.,executed,18.7252,True,False,26.8693,True,1.0,0.75,0.925,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_006/record.json
+deepseek,1,7,Pick up the CUP and place it on the TABLE.,executed,18.809,True,False,17.7323,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_192044_deepseek_level1/round_007/record.json
+deepseek,1,8,Pick up the CUP and place it on the TABLE.,executed,11.5181,True,False,17.6792,True,1.0,0.75,0.925,0,,,,,benchmark_results/20260510_192044_deepseek_level1/round_008/record.json
+deepseek,1,9,Pick up the CUP and place it on the TABLE.,executed,15.4481,True,False,27.1449,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_009/record.json
+deepseek,1,10,Pick up the CUP and place it on the TABLE.,executed,12.6988,True,False,27.1623,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_010/record.json
+deepseek,1,11,Pick up the CUP and place it on the TABLE.,executed,20.7506,True,False,27.4283,True,1.0,0.75,0.925,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_011/record.json
+deepseek,1,12,Pick up the CUP and place it on the TABLE.,executed,18.4279,True,False,26.8849,True,1.0,0.75,0.925,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_012/record.json
+deepseek,1,13,Pick up the CUP and place it on the TABLE.,executed,8.9692,True,False,31.4277,False,1.0,0.75,0.925,1,Didn't pick up the CUP,,,,benchmark_results/20260510_192044_deepseek_level1/round_013/record.json
+deepseek,1,14,Pick up the CUP and place it on the TABLE.,executed,13.8015,True,False,16.4232,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_014/record.json
+deepseek,1,15,Pick up the CUP and place it on the TABLE.,executed,9.7055,True,False,31.4969,False,1.0,0.75,0.925,1,Didn't pick up the CUP,,,,benchmark_results/20260510_192044_deepseek_level1/round_015/record.json
+deepseek,1,16,Pick up the CUP and place it on the TABLE.,executed,18.0065,True,False,15.0609,True,1.0,0.75,0.925,2,,,,,benchmark_results/20260510_192044_deepseek_level1/round_016/record.json
+deepseek,1,17,Pick up the CUP and place it on the TABLE.,executed,9.6643,True,False,27.0332,True,1.0,0.75,0.925,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_017/record.json
+deepseek,1,18,Pick up the CUP and place it on the TABLE.,executed,10.1469,True,False,26.7485,True,1.0,0.75,0.925,1,,,,,benchmark_results/20260510_192044_deepseek_level1/round_018/record.json
+deepseek,1,19,Pick up the CUP and place it on the TABLE.,executed,16.2392,True,False,31.4579,False,1.0,1.0,1.0,1,didn't pick up the CUP,,,,benchmark_results/20260510_192044_deepseek_level1/round_019/record.json
+glm,1,0,Pick up the CUP and place it on the TABLE.,executed,15.0691,True,False,27.3928,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_193828_glm_level1/round_000/record.json
+glm,1,1,Pick up the CUP and place it on the TABLE.,executed,29.1634,True,False,22.0265,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_193828_glm_level1/round_001/record.json
+glm,1,2,Pick up the CUP and place it on the TABLE.,executed,21.3303,True,False,17.8075,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_193828_glm_level1/round_002/record.json
+glm,1,3,Pick up the CUP and place it on the TABLE.,executed,19.4232,True,False,22.7596,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_193828_glm_level1/round_003/record.json
+glm,1,4,Pick up the CUP and place it on the TABLE.,executed,27.3862,True,False,18.0684,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_193828_glm_level1/round_004/record.json
+glm,1,5,Pick up the CUP and place it on the TABLE.,executed,23.6445,True,False,26.7947,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_193828_glm_level1/round_005/record.json
+glm,1,6,Pick up the CUP and place it on the TABLE.,executed,23.0133,True,False,26.9671,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_193828_glm_level1/round_006/record.json
+glm,1,7,Pick up the CUP and place it on the TABLE.,executed,35.835,True,False,17.8665,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_193828_glm_level1/round_007/record.json
+glm,1,8,Pick up the CUP and place it on the TABLE.,executed,21.7453,True,False,26.7891,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_193828_glm_level1/round_008/record.json
+glm,1,9,Pick up the CUP and place it on the TABLE.,executed,26.2057,True,False,26.6863,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_193828_glm_level1/round_009/record.json
+glm,1,10,Pick up the CUP and place it on the TABLE.,executed,24.8534,True,False,27.0407,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_193828_glm_level1/round_010/record.json
+glm,1,11,Pick up the CUP and place it on the TABLE.,executed,28.4283,True,False,31.5143,True,1.0,1.0,1.0,1,fail,,,,benchmark_results/20260510_193828_glm_level1/round_011/record.json
+glm,1,12,Pick up the CUP and place it on the TABLE.,executed,24.983,True,False,16.5824,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_193828_glm_level1/round_012/record.json
+glm,1,13,Pick up the CUP and place it on the TABLE.,executed,24.8051,True,False,27.204,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_193828_glm_level1/round_013/record.json
+glm,1,14,Pick up the CUP and place it on the TABLE.,executed,23.6007,True,False,26.965,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_193828_glm_level1/round_014/record.json
+glm,1,15,Pick up the CUP and place it on the TABLE.,executed,26.0454,True,False,22.0913,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_193828_glm_level1/round_015/record.json
+glm,1,16,Pick up the CUP and place it on the TABLE.,executed,24.3607,True,False,27.4909,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_193828_glm_level1/round_016/record.json
+glm,1,17,Pick up the CUP and place it on the TABLE.,executed,23.923,True,False,17.9635,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_193828_glm_level1/round_017/record.json
+glm,1,18,Pick up the CUP and place it on the TABLE.,executed,26.3437,True,False,26.5239,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_193828_glm_level1/round_018/record.json
+glm,1,19,Pick up the CUP and place it on the TABLE.,executed,18.8163,True,False,17.7266,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_193828_glm_level1/round_019/record.json
+kimi,1,0,Pick up the CUP and place it on the TABLE.,executed,9.9417,True,False,27.601,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_000/record.json
+kimi,1,1,Pick up the CUP and place it on the TABLE.,executed,10.2462,True,False,26.8201,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_001/record.json
+kimi,1,2,Pick up the CUP and place it on the TABLE.,executed,10.3093,True,False,27.2395,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_002/record.json
+kimi,1,3,Pick up the CUP and place it on the TABLE.,executed,10.8638,True,False,29.1548,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_003/record.json
+kimi,1,4,Pick up the CUP and place it on the TABLE.,executed,8.9696,True,False,27.1798,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_004/record.json
+kimi,1,5,Pick up the CUP and place it on the TABLE.,executed,8.5327,True,False,26.8967,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_005/record.json
+kimi,1,6,Pick up the CUP and place it on the TABLE.,executed,10.568,True,False,26.9135,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_006/record.json
+kimi,1,7,Pick up the CUP and place it on the TABLE.,executed,8.1704,True,False,26.9713,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_007/record.json
+kimi,1,8,Pick up the CUP and place it on the TABLE.,executed,10.1364,True,False,26.9417,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_008/record.json
+kimi,1,9,Pick up the CUP and place it on the TABLE.,executed,10.8753,True,False,27.1731,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_009/record.json
+kimi,1,10,Pick up the CUP and place it on the TABLE.,executed,9.3427,True,False,27.4544,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_010/record.json
+kimi,1,11,Pick up the CUP and place it on the TABLE.,executed,10.5337,True,False,26.8003,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_011/record.json
+kimi,1,12,Pick up the CUP and place it on the TABLE.,executed,9.8815,True,False,26.8657,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_012/record.json
+kimi,1,13,Pick up the CUP and place it on the TABLE.,executed,10.2629,True,False,26.7148,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_013/record.json
+kimi,1,14,Pick up the CUP and place it on the TABLE.,executed,9.2343,True,False,27.1072,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_014/record.json
+kimi,1,15,Pick up the CUP and place it on the TABLE.,executed,9.764,True,False,26.8657,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_015/record.json
+kimi,1,16,Pick up the CUP and place it on the TABLE.,executed,10.0245,True,False,26.8916,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_016/record.json
+kimi,1,17,Pick up the CUP and place it on the TABLE.,executed,10.0645,True,False,26.9573,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_017/record.json
+kimi,1,18,Pick up the CUP and place it on the TABLE.,executed,11.0734,True,False,26.9473,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_018/record.json
+kimi,1,19,Pick up the CUP and place it on the TABLE.,executed,10.2641,True,False,26.8142,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_195919_kimi_level1/round_019/record.json
+qwen,1,0,Pick up the CUP and place it on the TABLE.,executed,66.5198,True,False,32.3162,True,1.0,1.0,1.0,2,,,,,benchmark_results/20260510_204031_qwen_level1/round_000/record.json
+qwen,1,1,Pick up the CUP and place it on the TABLE.,executed,57.8911,True,False,18.0287,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_204031_qwen_level1/round_001/record.json
+qwen,1,2,Pick up the CUP and place it on the TABLE.,executed,50.9352,True,False,26.9001,True,1.0,0.75,0.925,1,,,,,benchmark_results/20260510_204031_qwen_level1/round_002/record.json
+qwen,1,3,Pick up the CUP and place it on the TABLE.,executed,56.8745,True,False,22.0037,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_204031_qwen_level1/round_003/record.json
+qwen,1,4,Pick up the CUP and place it on the TABLE.,executed,58.0395,True,False,26.9848,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_204031_qwen_level1/round_004/record.json
+qwen,1,5,Pick up the CUP and place it on the TABLE.,executed,72.3237,True,False,18.2099,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_204031_qwen_level1/round_005/record.json
+qwen,1,6,Pick up the CUP and place it on the TABLE.,executed,89.1501,True,False,27.1798,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_204031_qwen_level1/round_006/record.json
+qwen,1,7,Pick up the CUP and place it on the TABLE.,executed,72.3512,True,False,26.8788,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_204031_qwen_level1/round_007/record.json
+qwen,1,8,Pick up the CUP and place it on the TABLE.,executed,60.0995,False,True,22.3046,True,1.0,1.0,1.0,0,,,Compiler failed,,benchmark_results/20260510_204031_qwen_level1/round_008/record.json
+qwen,1,9,Pick up the CUP and place it on the TABLE.,executed,62.5899,True,False,27.0991,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_204031_qwen_level1/round_009/record.json
+qwen,1,10,Pick up the CUP and place it on the TABLE.,executed,98.8484,True,False,27.0735,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_204031_qwen_level1/round_010/record.json
+qwen,1,11,Pick up the CUP and place it on the TABLE.,executed,65.4859,True,False,31.7024,True,1.0,1.0,1.0,1,fail,,,,benchmark_results/20260510_204031_qwen_level1/round_011/record.json
+qwen,1,12,Pick up the CUP and place it on the TABLE.,executed,83.2711,True,False,27.3253,True,1.0,0.75,0.925,1,,,,,benchmark_results/20260510_204031_qwen_level1/round_012/record.json
+qwen,1,13,Pick up the CUP and place it on the TABLE.,executed,75.8579,True,False,27.3448,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_204031_qwen_level1/round_013/record.json
+qwen,1,14,Pick up the CUP and place it on the TABLE.,executed,61.489,True,False,22.4555,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_204031_qwen_level1/round_014/record.json
+qwen,1,15,Pick up the CUP and place it on the TABLE.,error,90.013,False,True,,,1.0,1.0,1.0,,,RuntimeError,"Compiler failed with return code -6
+stdout:
+
+stderr:
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Syntactic Error: token at 86 doesn't match with LITK
+",,benchmark_results/20260510_204031_qwen_level1/round_015/record.json
+qwen,1,16,Pick up the CUP and place it on the TABLE.,executed,87.3187,True,False,22.4176,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_204031_qwen_level1/round_016/record.json
+qwen,1,17,Pick up the CUP and place it on the TABLE.,executed,62.1958,True,False,26.8033,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_204031_qwen_level1/round_017/record.json
+qwen,1,18,Pick up the CUP and place it on the TABLE.,executed,69.1569,True,False,26.8594,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_204031_qwen_level1/round_018/record.json
+qwen,1,19,Pick up the CUP and place it on the TABLE.,executed,46.7119,True,False,27.1689,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_204031_qwen_level1/round_019/record.json
+gpt,1,0,Pick up the CUP and place it on the TABLE.,executed,5.2829,True,False,22.3335,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_000/record.json
+gpt,1,1,Pick up the CUP and place it on the TABLE.,executed,4.896,True,False,14.0347,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_001/record.json
+gpt,1,2,Pick up the CUP and place it on the TABLE.,executed,6.1079,True,False,22.5303,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_002/record.json
+gpt,1,3,Pick up the CUP and place it on the TABLE.,executed,4.6705,True,False,22.8019,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_003/record.json
+gpt,1,4,Pick up the CUP and place it on the TABLE.,executed,4.8125,True,False,27.3973,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_211500_gpt_level1/round_004/record.json
+gpt,1,5,Pick up the CUP and place it on the TABLE.,executed,5.6606,True,False,27.0067,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_211500_gpt_level1/round_005/record.json
+gpt,1,6,Pick up the CUP and place it on the TABLE.,executed,5.0289,True,False,13.4907,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_006/record.json
+gpt,1,7,Pick up the CUP and place it on the TABLE.,executed,5.0331,True,False,22.6777,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_007/record.json
+gpt,1,8,Pick up the CUP and place it on the TABLE.,executed,4.7458,True,False,22.3343,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_008/record.json
+gpt,1,9,Pick up the CUP and place it on the TABLE.,executed,4.531,True,False,22.5029,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_009/record.json
+gpt,1,10,Pick up the CUP and place it on the TABLE.,executed,6.2074,True,False,27.2089,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_211500_gpt_level1/round_010/record.json
+gpt,1,11,Pick up the CUP and place it on the TABLE.,executed,5.348,True,False,21.9152,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_011/record.json
+gpt,1,12,Pick up the CUP and place it on the TABLE.,executed,4.7103,True,False,27.3303,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_211500_gpt_level1/round_012/record.json
+gpt,1,13,Pick up the CUP and place it on the TABLE.,executed,7.4871,True,False,22.7507,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_013/record.json
+gpt,1,14,Pick up the CUP and place it on the TABLE.,executed,7.212,True,False,21.7265,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_014/record.json
+gpt,1,15,Pick up the CUP and place it on the TABLE.,executed,4.4399,True,False,24.3096,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_015/record.json
+gpt,1,16,Pick up the CUP and place it on the TABLE.,executed,4.6664,True,False,13.2193,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_016/record.json
+gpt,1,17,Pick up the CUP and place it on the TABLE.,executed,5.0652,True,False,22.268,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_017/record.json
+gpt,1,18,Pick up the CUP and place it on the TABLE.,executed,5.3848,True,False,22.9499,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_211500_gpt_level1/round_018/record.json
+gpt,1,19,Pick up the CUP and place it on the TABLE.,executed,4.8409,True,False,29.1818,True,1.0,1.0,1.0,,,,,,benchmark_results/20260510_211500_gpt_level1/round_019/record.json
+claude,1,0,Pick up the CUP and place it on the TABLE.,executed,6.7519,True,False,27.2907,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_000/record.json
+claude,1,1,Pick up the CUP and place it on the TABLE.,executed,6.934,True,False,26.7762,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_001/record.json
+claude,1,2,Pick up the CUP and place it on the TABLE.,executed,6.9994,True,False,27.2244,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_002/record.json
+claude,1,3,Pick up the CUP and place it on the TABLE.,executed,6.8801,True,False,26.7285,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_003/record.json
+claude,1,4,Pick up the CUP and place it on the TABLE.,executed,6.7317,True,False,26.8243,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_004/record.json
+claude,1,5,Pick up the CUP and place it on the TABLE.,executed,6.4983,True,False,27.3619,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_005/record.json
+claude,1,6,Pick up the CUP and place it on the TABLE.,executed,6.665,True,False,26.9666,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_006/record.json
+claude,1,7,Pick up the CUP and place it on the TABLE.,executed,6.413,True,False,27.007,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_007/record.json
+claude,1,8,Pick up the CUP and place it on the TABLE.,executed,6.3386,True,False,26.9781,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_008/record.json
+claude,1,9,Pick up the CUP and place it on the TABLE.,executed,6.7513,True,False,27.0791,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_009/record.json
+claude,1,10,Pick up the CUP and place it on the TABLE.,executed,6.6214,True,False,27.0433,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_010/record.json
+claude,1,11,Pick up the CUP and place it on the TABLE.,executed,6.9139,True,False,26.6919,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_011/record.json
+claude,1,12,Pick up the CUP and place it on the TABLE.,executed,6.7382,True,False,27.094,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_012/record.json
+claude,1,13,Pick up the CUP and place it on the TABLE.,executed,6.4236,True,False,26.8239,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_013/record.json
+claude,1,14,Pick up the CUP and place it on the TABLE.,executed,6.8104,True,False,27.285,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_014/record.json
+claude,1,15,Pick up the CUP and place it on the TABLE.,executed,7.0271,True,False,27.1328,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_015/record.json
+claude,1,16,Pick up the CUP and place it on the TABLE.,executed,6.5778,True,False,27.0284,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_016/record.json
+claude,1,17,Pick up the CUP and place it on the TABLE.,executed,12.0821,True,False,26.9285,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_017/record.json
+claude,1,18,Pick up the CUP and place it on the TABLE.,executed,7.7698,True,False,27.4896,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_018/record.json
+claude,1,19,Pick up the CUP and place it on the TABLE.,executed,6.5735,True,False,27.0185,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_213551_claude_level1/round_019/record.json
+gemini,1,0,Pick up the CUP and place it on the TABLE.,executed,17.1428,True,False,27.1375,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_000/record.json
+gemini,1,1,Pick up the CUP and place it on the TABLE.,executed,18.7044,True,False,26.6057,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_001/record.json
+gemini,1,2,Pick up the CUP and place it on the TABLE.,executed,13.4685,True,False,22.3659,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_220822_gemini_level1/round_002/record.json
+gemini,1,3,Pick up the CUP and place it on the TABLE.,executed,11.4504,True,False,27.1009,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_003/record.json
+gemini,1,4,Pick up the CUP and place it on the TABLE.,executed,17.4192,True,False,27.2666,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_004/record.json
+gemini,1,5,Pick up the CUP and place it on the TABLE.,executed,10.949,True,False,22.6972,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_220822_gemini_level1/round_005/record.json
+gemini,1,6,Pick up the CUP and place it on the TABLE.,error,,False,False,,,,,,,,JSONDecodeError,Unterminated string starting at: line 8 column 11 (char 361),,benchmark_results/20260510_220822_gemini_level1/round_006/record.json
+gemini,1,7,Pick up the CUP and place it on the TABLE.,executed,10.9008,True,False,22.4054,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260510_220822_gemini_level1/round_007/record.json
+gemini,1,8,Pick up the CUP and place it on the TABLE.,error,,False,False,,,,,,,,JSONDecodeError,Unterminated string starting at: line 5 column 5 (char 214),,benchmark_results/20260510_220822_gemini_level1/round_008/record.json
+gemini,1,9,Pick up the CUP and place it on the TABLE.,error,,False,False,,,,,,,,JSONDecodeError,Unterminated string starting at: line 8 column 11 (char 386),,benchmark_results/20260510_220822_gemini_level1/round_009/record.json
+gemini,1,10,Pick up the CUP and place it on the TABLE.,executed,10.8207,True,False,26.8714,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_010/record.json
+gemini,1,11,Pick up the CUP and place it on the TABLE.,executed,13.7249,True,False,27.1355,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_011/record.json
+gemini,1,12,Pick up the CUP and place it on the TABLE.,error,,False,False,,,,,,,,JSONDecodeError,Expecting value: line 4 column 87 (char 278),,benchmark_results/20260510_220822_gemini_level1/round_012/record.json
+gemini,1,13,Pick up the CUP and place it on the TABLE.,executed,10.713,True,False,27.5072,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_013/record.json
+gemini,1,14,Pick up the CUP and place it on the TABLE.,executed,11.5884,True,False,26.9396,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_014/record.json
+gemini,1,15,Pick up the CUP and place it on the TABLE.,executed,16.2716,True,False,31.5043,False,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_015/record.json
+gemini,1,16,Pick up the CUP and place it on the TABLE.,executed,10.7847,True,False,26.9854,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_016/record.json
+gemini,1,17,Pick up the CUP and place it on the TABLE.,executed,15.2336,True,False,26.9245,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_017/record.json
+gemini,1,18,Pick up the CUP and place it on the TABLE.,executed,14.9591,True,False,26.8959,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_018/record.json
+gemini,1,19,Pick up the CUP and place it on the TABLE.,executed,19.1603,True,False,27.2434,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260510_220822_gemini_level1/round_019/record.json
+deepseek,2,0,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,23.552,True,False,24.1692,True,0.5,0.375,0.4625,2,overlook obstacle,,,,benchmark_results/20260511_200536_deepseek_level2/round_000/record.json
+deepseek,2,1,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,rtdl_invalid,23.112,False,False,,,1.0,0.875,0.9625,,,,,"Some errors happened when compiling, it will be displayed here while also saved to error.txt
+Semantic Error at line 33: The ref: s8 doesn't exist.
+Semantic Error at line 33: The type of 's8' is: string and it is incompatible with 'success', the type of which is bool.
+",benchmark_results/20260511_200536_deepseek_level2/round_001/record.json
+deepseek,2,2,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,rtdl_invalid,18.0719,False,False,,,1.0,0.875,0.9625,,,,,"Some errors happened when compiling, it will be displayed here while also saved to error.txt
+Semantic Error at line 28: The ref: success7 doesn't exist.
+Semantic Error at line 28: The type of 'success7' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 28: The ref: msg7 doesn't exist.
+Semantic Error at line 28: The type of 'msg7' is: double and it is incompatible with 'message', the type of which is string.
+Semantic Error at line 29: The ref: success7 doesn't exist.
+Semantic Error at line 30: The ref: success8 doesn't exist.
+Semantic Error at line 30: The type of 'success8' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 30: The ref: msg8 doesn't exist.
+",benchmark_results/20260511_200536_deepseek_level2/round_002/record.json
+deepseek,2,3,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,22.7689,True,False,1.7052,False,0.75,0.75,0.75,0,lack NavTo and fail,,,,benchmark_results/20260511_200536_deepseek_level2/round_003/record.json
+deepseek,2,4,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,23.6558,True,False,6.8563,False,0.75,0.75,0.75,0,lack Place,,,,benchmark_results/20260511_200536_deepseek_level2/round_004/record.json
+deepseek,2,5,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,21.1911,True,False,47.4493,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260511_200536_deepseek_level2/round_005/record.json
+deepseek,2,6,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,11.2771,True,False,17.4298,False,0.5,0.5,0.5,0,overlook the obstacle,,,,benchmark_results/20260511_200536_deepseek_level2/round_006/record.json
+deepseek,2,7,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,27.0686,True,False,32.8719,False,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_200536_deepseek_level2/round_007/record.json
+deepseek,2,8,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,rtdl_invalid,22.1935,False,False,,,1.0,1.0,1.0,,,,,"Some errors happened when compiling, it will be displayed here while also saved to error.txt
+Semantic Error at line 27: The ref: success7 doesn't exist.
+Semantic Error at line 27: The type of 'success7' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 27: The ref: message7 doesn't exist.
+Semantic Error at line 27: The type of 'message7' is: double and it is incompatible with 'message', the type of which is string.
+Semantic Error at line 28: The ref: success7 doesn't exist.
+Semantic Error at line 29: The ref: success8 doesn't exist.
+Semantic Error at line 29: The type of 'success8' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 29: The ref: message8 doesn't exist.
+Semantic Error at line 30: The ref: success8 doesn't exist.
+",benchmark_results/20260511_200536_deepseek_level2/round_008/record.json
+deepseek,2,9,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,15.7236,True,False,58.5829,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_200536_deepseek_level2/round_009/record.json
+glm,2,0,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,43.593,True,False,49.7754,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_202154_glm_level2/round_000/record.json
+glm,2,1,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,80.9437,True,False,58.1569,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_202154_glm_level2/round_001/record.json
+glm,2,2,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,70.9374,True,False,54.9815,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_202154_glm_level2/round_002/record.json
+glm,2,3,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,45.008,True,False,37.8935,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260511_202154_glm_level2/round_003/record.json
+glm,2,4,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,102.7556,True,False,53.3812,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_202154_glm_level2/round_004/record.json
+glm,2,5,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,65.7069,True,False,44.4046,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260511_202154_glm_level2/round_005/record.json
+glm,2,6,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,54.0016,True,False,58.0956,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_202154_glm_level2/round_006/record.json
+glm,2,7,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,47.1426,True,False,38.3871,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_202154_glm_level2/round_007/record.json
+glm,2,8,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,93.7678,True,False,30.0563,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260511_202154_glm_level2/round_008/record.json
+glm,2,9,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,42.469,True,False,58.6867,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_202154_glm_level2/round_009/record.json
+kimi,2,0,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,12.5557,True,False,58.6332,False,0.5,0.5,0.5,1,overlook the obstacle,,,,benchmark_results/20260511_204301_kimi_level2/round_000/record.json
+kimi,2,1,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,11.8864,True,False,91.4065,False,0.5,0.5,0.5,,,,,,benchmark_results/20260511_204301_kimi_level2/round_001/record.json
+kimi,2,2,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,17.125,True,False,59.9954,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_204301_kimi_level2/round_002/record.json
+kimi,2,3,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,15.6119,True,False,12.7586,False,1.0,1.0,1.0,0,,,,,benchmark_results/20260511_204301_kimi_level2/round_003/record.json
+kimi,2,4,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,14.5999,True,False,58.5512,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_204301_kimi_level2/round_004/record.json
+kimi,2,5,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,15.5525,True,False,58.2255,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_204301_kimi_level2/round_005/record.json
+kimi,2,6,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,16.0703,True,False,58.8433,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_204301_kimi_level2/round_006/record.json
+kimi,2,7,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,13.9,True,False,6.8132,False,0.75,0.75,0.75,0,,,,,benchmark_results/20260511_204301_kimi_level2/round_007/record.json
+kimi,2,8,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,rtdl_invalid,15.4063,False,False,,,1.0,1.0,1.0,,,,,,benchmark_results/20260511_204301_kimi_level2/round_008/record.json
+kimi,2,9,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,13.2347,True,False,58.0153,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_204301_kimi_level2/round_009/record.json
+qwen,2,0,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,166.9653,True,False,53.4445,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_210155_qwen_level2/round_000/record.json
+qwen,2,1,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,99.8212,True,False,58.604,True,1.0,0.875,0.9625,1,,,,,benchmark_results/20260511_210155_qwen_level2/round_001/record.json
+qwen,2,2,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,123.2019,True,False,91.4525,False,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_210155_qwen_level2/round_002/record.json
+qwen,2,3,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,103.7053,True,False,58.9372,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_210155_qwen_level2/round_003/record.json
+qwen,2,4,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,143.4356,True,False,59.1996,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_210155_qwen_level2/round_004/record.json
+qwen,2,5,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,115.1185,True,False,59.1492,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_210155_qwen_level2/round_005/record.json
+qwen,2,6,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,112.6158,True,False,61.5369,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_210155_qwen_level2/round_006/record.json
+qwen,2,7,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,113.5944,True,False,58.9032,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_210155_qwen_level2/round_007/record.json
+qwen,2,8,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,131.7844,True,False,47.6961,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_210155_qwen_level2/round_008/record.json
+qwen,2,9,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,106.0443,True,False,58.6529,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_210155_qwen_level2/round_009/record.json
+gpt,2,0,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,8.4472,True,False,58.9382,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260511_213400_gpt_level2/round_000/record.json
+gpt,2,1,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,11.7077,True,False,58.6921,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_213400_gpt_level2/round_001/record.json
+gpt,2,2,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,8.5906,True,False,58.4859,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_213400_gpt_level2/round_002/record.json
+gpt,2,3,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,11.708,True,False,57.8746,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_213400_gpt_level2/round_003/record.json
+gpt,2,4,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,8.3869,True,False,58.3322,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_213400_gpt_level2/round_004/record.json
+gpt,2,5,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,8.7264,True,False,60.6474,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_213400_gpt_level2/round_005/record.json
+gpt,2,6,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,9.1612,True,False,58.1604,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_213400_gpt_level2/round_006/record.json
+gpt,2,7,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,9.3291,True,False,59.0801,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_213400_gpt_level2/round_007/record.json
+gpt,2,8,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,9.1577,True,False,58.5411,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_213400_gpt_level2/round_008/record.json
+gpt,2,9,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,9.0313,True,False,61.2536,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_213400_gpt_level2/round_009/record.json
+claude,2,0,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,11.6302,True,False,58.6435,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_214700_claude_level2/round_000/record.json
+claude,2,1,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,11.3831,True,False,59.0881,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_214700_claude_level2/round_001/record.json
+claude,2,2,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,11.9303,True,False,58.5805,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_214700_claude_level2/round_002/record.json
+claude,2,3,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,rtdl_invalid,13.0034,False,False,,,1.0,1.0,1.0,,,,,,benchmark_results/20260511_214700_claude_level2/round_003/record.json
+claude,2,4,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,11.3657,True,False,61.7799,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_214700_claude_level2/round_004/record.json
+claude,2,5,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,11.7375,True,False,47.8748,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260511_214700_claude_level2/round_005/record.json
+claude,2,6,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,12.7495,True,False,58.4522,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_214700_claude_level2/round_006/record.json
+claude,2,7,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,11.1604,True,False,58.7807,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_214700_claude_level2/round_007/record.json
+claude,2,8,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,16.7665,True,False,52.8632,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_214700_claude_level2/round_008/record.json
+claude,2,9,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,executed,14.9107,True,False,58.7326,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260511_214700_claude_level2/round_009/record.json
+gemini,2,0,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,error,,False,False,,,,,,,,JSONDecodeError,Unterminated string starting at: line 3 column 3 (char 246),,benchmark_results/20260511_215903_gemini_level2/round_000/record.json
+gemini,2,1,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,error,,False,False,,,,,,,,JSONDecodeError,Unterminated string starting at: line 5 column 5 (char 206),,benchmark_results/20260511_215903_gemini_level2/round_001/record.json
+gemini,2,2,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,error,,False,False,,,,,,,,JSONDecodeError,Expecting value: line 3 column 19 (char 232),,benchmark_results/20260511_215903_gemini_level2/round_002/record.json
+gemini,2,3,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,error,,False,False,,,,,,,,JSONDecodeError,Unterminated string starting at: line 4 column 5 (char 233),,benchmark_results/20260511_215903_gemini_level2/round_003/record.json
+gemini,2,4,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,error,,False,False,,,,,,,,JSONDecodeError,Unterminated string starting at: line 2 column 19 (char 20),,benchmark_results/20260511_215903_gemini_level2/round_004/record.json
+gemini,2,5,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,error,,False,False,,,,,,,,JSONDecodeError,Unterminated string starting at: line 4 column 5 (char 221),,benchmark_results/20260511_215903_gemini_level2/round_005/record.json
+gemini,2,6,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,error,,False,False,,,,,,,,JSONDecodeError,Expecting property name enclosed in double quotes: line 2 column 289 (char 290),,benchmark_results/20260511_215903_gemini_level2/round_006/record.json
+gemini,2,7,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,error,,False,False,,,,,,,,JSONDecodeError,Expecting value: line 3 column 19 (char 226),,benchmark_results/20260511_215903_gemini_level2/round_007/record.json
+gemini,2,8,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,error,,False,False,,,,,,,,JSONDecodeError,Unterminated string starting at: line 2 column 19 (char 20),,benchmark_results/20260511_215903_gemini_level2/round_008/record.json
+gemini,2,9,Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.,error,,False,False,,,,,,,,JSONDecodeError,Unterminated string starting at: line 8 column 11 (char 463),,benchmark_results/20260511_215903_gemini_level2/round_009/record.json
+deepseek,3,0,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",rtdl_invalid,35.7214,False,False,,,1.0,1.0,1.0,,,,,"Some errors happened when compiling, it will be displayed here while also saved to error.txt
+Semantic Error at line 23: The ref: s7 doesn't exist.
+Semantic Error at line 23: The type of 's7' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 24: The ref: s7 doesn't exist.
+Semantic Error at line 25: The ref: s8 doesn't exist.
+Semantic Error at line 25: The type of 's8' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 26: The ref: s8 doesn't exist.
+Semantic Error at line 27: The ref: s9 doesn't exist.
+Semantic Error at line 27: The type of 's9' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 28: The ref: s9 doesn't exist.
+Semantic Error at line 29: The ref: s10 doesn't exist.
+Semantic Error at line 29: The type of 's10' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 30: The ref: s10 doesn't exist.
+Semantic Error at line 31: The ref: s11 doesn't exist.
+Semantic Error at line 31: The type of 's11' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 32: The ref: s11 doesn't exist.
+Semantic Error at line 33: The ref: s12 doesn't exist.
+Semantic Error at line 33: The type of 's12' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 34: The ref: s12 doesn't exist.
+",benchmark_results/20260512_155413_deepseek_level3/round_000/record.json
+deepseek,3,1,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",rtdl_invalid,34.2814,False,False,,,0.667,0.667,0.667,,,,,,benchmark_results/20260512_155413_deepseek_level3/round_001/record.json
+deepseek,3,2,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,37.8289,True,False,87.3656,True,1.0,1.0,1.0,3,,,,,benchmark_results/20260512_155413_deepseek_level3/round_002/record.json
+deepseek,3,3,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",rtdl_invalid,34.8621,False,False,,,1.0,1.0,1.0,,,,,"Some errors happened when compiling, it will be displayed here while also saved to error.txt
+Semantic Error at line 34: The ref: success7 doesn't exist.
+Semantic Error at line 34: The type of 'success7' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 34: The ref: msg7 doesn't exist.
+Semantic Error at line 34: The type of 'msg7' is: double and it is incompatible with 'message', the type of which is string.
+Semantic Error at line 35: The ref: success7 doesn't exist.
+Semantic Error at line 37: The ref: success8 doesn't exist.
+Semantic Error at line 37: The type of 'success8' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 37: The ref: msg8 doesn't exist.
+Semantic Error at line 38: The ref: success8 doesn't exist.
+Semantic Error at line 40: The ref: success9 doesn't exist.
+Semantic Error at line 40: The type of 'success9' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 40: The ref: msg9 doesn't exist.
+Semantic Error at line 40: The type of 'msg9' is: double and it is incompatible with 'message', the type of which is string.
+Semantic Error at line 41: The ref: success9 doesn't exist.
+Semantic Error at line 43: The ref: success10 doesn't exist.
+Semantic Error at line 43: The type of 'success10' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 43: The ref: msg10 doesn't exist.
+Semantic Error at line 44: The ref: success10 doesn't exist.
+Semantic Error at line 46: The ref: success11 doesn't exist.
+Semantic Error at line 46: The type of 'success11' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 46: The ref: msg11 doesn't exist.
+Semantic Error at line 46: The type of 'msg11' is: double and it is incompatible with 'message', the type of which is string.
+Semantic Error at line 47: The ref: success11 doesn't exist.
+Semantic Error at line 49: The ref: success12 doesn't exist.
+Semantic Error at line 49: The type of 'success12' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 49: The ref: msg12 doesn't exist.
+Semantic Error at line 50: The ref: success12 doesn't exist.
+",benchmark_results/20260512_155413_deepseek_level3/round_003/record.json
+deepseek,3,4,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",rtdl_invalid,38.6032,False,False,,,1.0,1.0,1.0,,,,,"Some errors happened when compiling, it will be displayed here while also saved to error.txt
+Semantic Error at line 1: The ref: success8 doesn't exist.
+Semantic Error at line 1: The type of 'success8' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 1: The ref: message8 doesn't exist.
+Semantic Error at line 1: The ref: success9 doesn't exist.
+Semantic Error at line 1: The type of 'success9' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 1: The ref: message9 doesn't exist.
+Semantic Error at line 1: The type of 'message9' is: double and it is incompatible with 'message', the type of which is string.
+Semantic Error at line 1: The ref: success9 doesn't exist.
+Semantic Error at line 1: The ref: success10 doesn't exist.
+Semantic Error at line 1: The type of 'success10' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 1: The ref: message10 doesn't exist.
+Semantic Error at line 1: The ref: success10 doesn't exist.
+Semantic Error at line 1: The ref: success11 doesn't exist.
+Semantic Error at line 1: The type of 'success11' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 1: The ref: message11 doesn't exist.
+Semantic Error at line 1: The type of 'message11' is: double and it is incompatible with 'message', the type of which is string.
+Semantic Error at line 1: The ref: success11 doesn't exist.
+Semantic Error at line 1: The ref: success12 doesn't exist.
+Semantic Error at line 1: The type of 'success12' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 1: The ref: message12 doesn't exist.
+",benchmark_results/20260512_155413_deepseek_level3/round_004/record.json
+deepseek,3,5,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",rtdl_invalid,41.1205,False,False,,,1.0,1.0,1.0,,,,,"Some errors happened when compiling, it will be displayed here while also saved to error.txt
+Semantic Error at line 44: The ref: success11 doesn't exist.
+Semantic Error at line 44: The type of 'success11' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 44: The ref: msg11 doesn't exist.
+Semantic Error at line 44: The type of 'msg11' is: double and it is incompatible with 'message', the type of which is string.
+Semantic Error at line 45: The ref: success11 doesn't exist.
+Semantic Error at line 46: The ref: success12 doesn't exist.
+Semantic Error at line 46: The type of 'success12' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 46: The ref: msg12 doesn't exist.
+",benchmark_results/20260512_155413_deepseek_level3/round_005/record.json
+deepseek,3,6,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",rtdl_invalid,43.0436,False,False,,,1.0,1.0,1.0,,,,,,benchmark_results/20260512_155413_deepseek_level3/round_006/record.json
+deepseek,3,7,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,42.3748,True,False,88.6383,True,1.0,1.0,1.0,2,,,,,benchmark_results/20260512_155413_deepseek_level3/round_007/record.json
+deepseek,3,8,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",rtdl_invalid,35.2737,False,False,,,1.0,1.0,1.0,,,,,,benchmark_results/20260512_155413_deepseek_level3/round_008/record.json
+deepseek,3,9,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",rtdl_invalid,38.7754,False,False,,,1.0,1.0,1.0,,,,,"Some errors happened when compiling, it will be displayed here while also saved to error.txt
+Semantic Error at line 27: The ref: success7 doesn't exist.
+Semantic Error at line 27: The type of 'success7' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 27: The ref: msg7 doesn't exist.
+Semantic Error at line 27: The type of 'msg7' is: double and it is incompatible with 'message', the type of which is string.
+Semantic Error at line 28: The ref: success7 doesn't exist.
+Semantic Error at line 29: The ref: success8 doesn't exist.
+Semantic Error at line 29: The type of 'success8' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 29: The ref: msg8 doesn't exist.
+Semantic Error at line 30: The ref: success8 doesn't exist.
+Semantic Error at line 31: The ref: success9 doesn't exist.
+Semantic Error at line 31: The type of 'success9' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 31: The ref: msg9 doesn't exist.
+Semantic Error at line 31: The type of 'msg9' is: double and it is incompatible with 'message', the type of which is string.
+Semantic Error at line 32: The ref: success9 doesn't exist.
+Semantic Error at line 33: The ref: success10 doesn't exist.
+Semantic Error at line 33: The type of 'success10' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 33: The ref: msg10 doesn't exist.
+Semantic Error at line 34: The ref: success10 doesn't exist.
+Semantic Error at line 35: The ref: success11 doesn't exist.
+Semantic Error at line 35: The type of 'success11' is: double and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 35: The ref: msg11 doesn't exist.
+Semantic Error at line 35: The type of 'msg11' is: double and it is incompatible with 'message', the type of which is string.
+Semantic Error at line 36: The ref: success11 doesn't exist.
+Semantic Error at line 37: The ref: success12 doesn't exist.
+Semantic Error at line 37: The type of 'success12' is: string and it is incompatible with 'success', the type of which is bool.
+Semantic Error at line 37: The ref: msg12 doesn't exist.
+Semantic Error at line 38: The ref: success12 doesn't exist.
+",benchmark_results/20260512_155413_deepseek_level3/round_009/record.json
+glm,3,0,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",rtdl_invalid,61.4367,False,False,,,1.0,1.0,1.0,,,,,,benchmark_results/20260512_160411_glm_level3/round_000/record.json
+glm,3,1,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,88.9538,True,False,87.5502,True,1.0,1.0,1.0,2,,,,,benchmark_results/20260512_160411_glm_level3/round_001/record.json
+glm,3,2,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,51.1854,True,False,33.2562,False,1.0,1.0,1.0,,,,,,benchmark_results/20260512_160411_glm_level3/round_002/record.json
+glm,3,3,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,57.5973,True,False,70.7474,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_160411_glm_level3/round_003/record.json
+glm,3,4,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,86.5353,True,False,59.3381,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_160411_glm_level3/round_004/record.json
+glm,3,5,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,36.38,True,False,55.0847,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_160411_glm_level3/round_005/record.json
+glm,3,6,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,114.7232,True,False,70.6955,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_160411_glm_level3/round_006/record.json
+glm,3,7,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,57.4606,True,False,60.4055,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_160411_glm_level3/round_007/record.json
+glm,3,8,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,49.7215,True,False,54.1339,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_160411_glm_level3/round_008/record.json
+glm,3,9,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,60.614,True,False,63.8457,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_160411_glm_level3/round_009/record.json
+kimi,3,0,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,19.432,True,False,87.3444,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260512_162516_kimi_level3/round_000/record.json
+kimi,3,1,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,13.7865,True,False,58.6227,False,0.667,0.667,0.667,1,No recovery,,,,benchmark_results/20260512_162516_kimi_level3/round_001/record.json
+kimi,3,2,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,18.816,True,False,86.3145,True,1.0,1.0,1.0,3,,,,,benchmark_results/20260512_162516_kimi_level3/round_002/record.json
+kimi,3,3,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,10.1374,True,False,28.0545,False,0.333,0.333,0.333,1,Take the MIDDLE immediately,,,,benchmark_results/20260512_162516_kimi_level3/round_003/record.json
+kimi,3,4,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,23.0227,True,False,87.4691,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260512_162516_kimi_level3/round_004/record.json
+kimi,3,5,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,18.299,True,False,86.5948,True,1.0,1.0,1.0,2,,,,,benchmark_results/20260512_162516_kimi_level3/round_005/record.json
+kimi,3,6,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,16.5192,True,False,13.1897,False,0.667,0.667,0.667,0,,,,,benchmark_results/20260512_162516_kimi_level3/round_006/record.json
+kimi,3,7,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,24.6522,True,False,87.2427,True,1.0,1.0,1.0,2,,,,,benchmark_results/20260512_162516_kimi_level3/round_007/record.json
+kimi,3,8,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,20.5391,True,False,86.9846,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260512_162516_kimi_level3/round_008/record.json
+kimi,3,9,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,23.2083,True,False,83.8969,False,1.0,1.0,1.0,2,,,,,benchmark_results/20260512_162516_kimi_level3/round_009/record.json
+qwen,3,0,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,107.8054,True,False,87.1124,True,1.0,0.0,0.7,1,,,,,benchmark_results/20260512_164438_qwen_level3/round_000/record.json
+qwen,3,1,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,121.9997,True,False,86.9806,True,1.0,1.0,1.0,2,,,,,benchmark_results/20260512_164438_qwen_level3/round_001/record.json
+qwen,3,2,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,113.6741,True,False,87.162,True,1.0,1.0,1.0,3,,,,,benchmark_results/20260512_164438_qwen_level3/round_002/record.json
+qwen,3,3,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,121.9933,True,False,87.3115,True,1.0,1.0,1.0,1,,,,,benchmark_results/20260512_164438_qwen_level3/round_003/record.json
+qwen,3,4,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,108.9892,True,False,54.0294,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_164438_qwen_level3/round_004/record.json
+qwen,3,5,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,139.3895,True,False,87.5059,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_164438_qwen_level3/round_005/record.json
+qwen,3,6,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,118.577,True,False,85.4053,True,1.0,1.0,1.0,2,,,,,benchmark_results/20260512_164438_qwen_level3/round_006/record.json
+qwen,3,7,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,134.2321,True,False,86.9117,True,1.0,1.0,1.0,3,,,,,benchmark_results/20260512_164438_qwen_level3/round_007/record.json
+qwen,3,8,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,105.0736,True,False,70.6013,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_164438_qwen_level3/round_008/record.json
+qwen,3,9,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,85.7741,True,False,87.9906,True,1.0,0.0,0.7,0,,,,,benchmark_results/20260512_164438_qwen_level3/round_009/record.json
+gpt,3,0,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,9.548,True,False,59.1238,True,0.667,0.667,0.667,2,,,,,benchmark_results/20260512_171917_gpt_level3/round_000/record.json
+gpt,3,1,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,12.763,True,False,87.3206,True,1.0,1.0,1.0,2,,,,,benchmark_results/20260512_171917_gpt_level3/round_001/record.json
+gpt,3,2,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,9.0447,True,False,58.6706,True,0.667,0.667,0.667,1,,,,,benchmark_results/20260512_171917_gpt_level3/round_002/record.json
+gpt,3,3,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,9.1855,True,False,36.5325,True,0.667,0.667,0.667,0,,,,,benchmark_results/20260512_171917_gpt_level3/round_003/record.json
+gpt,3,4,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,9.1249,True,False,58.8497,True,0.667,0.667,0.667,1,,,,,benchmark_results/20260512_171917_gpt_level3/round_004/record.json
+gpt,3,5,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,9.0276,True,False,37.9378,True,0.667,0.667,0.667,0,,,,,benchmark_results/20260512_171917_gpt_level3/round_005/record.json
+gpt,3,6,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,8.6616,True,False,47.1136,True,0.667,0.667,0.667,0,,,,,benchmark_results/20260512_171917_gpt_level3/round_006/record.json
+gpt,3,7,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,8.6873,True,False,58.5384,True,0.667,0.667,0.667,1,,,,,benchmark_results/20260512_171917_gpt_level3/round_007/record.json
+gpt,3,8,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,8.7262,True,False,58.1167,True,0.667,0.667,0.667,0,,,,,benchmark_results/20260512_171917_gpt_level3/round_008/record.json
+gpt,3,9,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,8.3955,True,False,24.8908,True,0.667,0.667,0.667,0,,,,,benchmark_results/20260512_171917_gpt_level3/round_009/record.json
+claude,3,0,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,14.1325,True,False,54.5822,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_173119_claude_level3/round_000/record.json
+claude,3,1,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,13.4507,True,False,86.9314,True,1.0,1.0,1.0,2,,,,,benchmark_results/20260512_173119_claude_level3/round_001/record.json
+claude,3,2,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,14.4491,True,False,86.323,True,1.0,1.0,1.0,2,,,,,benchmark_results/20260512_173119_claude_level3/round_002/record.json
+claude,3,3,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",rtdl_invalid,16.6463,False,False,,,1.0,1.0,1.0,,,,,,benchmark_results/20260512_173119_claude_level3/round_003/record.json
+claude,3,4,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,13.2927,True,False,53.6759,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_173119_claude_level3/round_004/record.json
+claude,3,5,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,20.1586,True,False,86.4627,True,1.0,1.0,1.0,4,,,,,benchmark_results/20260512_173119_claude_level3/round_005/record.json
+claude,3,6,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,14.5745,True,False,87.3819,True,1.0,1.0,1.0,2,,,,,benchmark_results/20260512_173119_claude_level3/round_006/record.json
+claude,3,7,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,16.561,True,False,148.5536,True,1.0,1.0,1.0,3,,,,,benchmark_results/20260512_173119_claude_level3/round_007/record.json
+claude,3,8,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,15.5731,True,False,60.4342,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_173119_claude_level3/round_008/record.json
+claude,3,9,"Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",executed,14.1883,True,False,86.1938,True,1.0,1.0,1.0,0,,,,,benchmark_results/20260512_173119_claude_level3/round_009/record.json

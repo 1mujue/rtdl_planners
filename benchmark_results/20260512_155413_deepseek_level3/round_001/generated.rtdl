@@ -1,0 +1,52 @@
+def task remove_middle_and_place_on_inspection_table(;){
+    state success1: bool;
+    state msg1: string;
+    state success2: bool;
+    state msg2: string;
+    state success3: bool;
+    state msg3: string;
+    state success4: bool;
+    state msg4: string;
+    state success5: bool;
+    state msg5: string;
+
+    sequence{
+        # Step 1: Navigate to box stack location (next to BOX_BOTTOM)
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->success1, message->msg1);
+        check(success1 == true);
+
+        # Step 2: Pick BOX_TOP (currently top of stack)
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->success2, message->msg2);
+        check(success2 == true);
+
+        # Step 3: Navigate to TEMP_TABLE to temporarily place BOX_TOP
+        do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=0.5; success->success3, message->msg3);
+        check(success3 == true);
+
+        # Step 4: Place BOX_TOP on TEMP_TABLE
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="TEMP_TABLE"; success->success4, message->msg4);
+        check(success4 == true);
+
+        # Step 5: Back to box stack to pick BOX_MIDDLE
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->success5, message->msg5);
+        check(success5 == true);
+
+        # Step 6: Pick BOX_MIDDLE (now top of stack)
+        state success6: bool;
+        state msg6: string;
+        do Pick(robot_name="CAR", object_name="BOX_MIDDLE"; success->success6, message->msg6);
+        check(success6 == true);
+
+        # Step 7: Navigate to INSPECTION_TABLE
+        state success7: bool;
+        state msg7: string;
+        do NavTo(robot_name="CAR", x=-2.2, y=2.0, tolerance=0.5; success->success7, message->msg7);
+        check(success7 == true);
+
+        # Step 8: Place BOX_MIDDLE on INSPECTION_TABLE
+        state success8: bool;
+        state msg8: string;
+        do Place(robot_name="CAR", object_name="BOX_MIDDLE", location_name="INSPECTION_TABLE"; success->success8, message->msg8);
+        check(success8 == true);
+    }
+}

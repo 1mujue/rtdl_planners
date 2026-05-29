@@ -1,0 +1,37 @@
+def task ClearObstacleAndPlaceMedicine(;){
+    state nav1_success: bool;
+    state nav1_message: string;
+    state pick_obstacle_success: bool;
+    state pick_obstacle_message: string;
+    state nav2_success: bool;
+    state nav2_message: string;
+    state place_obstacle_success: bool;
+    state place_obstacle_message: string;
+    state nav3_success: bool;
+    state nav3_message: string;
+    state pick_bottle_success: bool;
+    state pick_bottle_message: string;
+    state nav4_success: bool;
+    state nav4_message: string;
+    state place_bottle_success: bool;
+    state place_bottle_message: string;
+
+    sequence{
+        retry(3) do NavTo(robot_name="CAR",x=1.8497392453176391,y=1.499783196256955,tolerance=0.5;success->nav1_success,message->nav1_message);
+        check(nav1_success == true);
+        retry(3) do Pick(robot_name="CAR",object_name="FRONT_CRATE";success->pick_obstacle_success,message->pick_obstacle_message);
+        check(pick_obstacle_success == true);
+        retry(3) do NavTo(robot_name="CAR",x=-1.9999701841546322,y=-1.799969598331008,tolerance=0.5;success->nav2_success,message->nav2_message);
+        check(nav2_success == true);
+        do Place(robot_name="CAR",object_name="FRONT_CRATE",location_name="TEMP_ZONE";success->place_obstacle_success,message->place_obstacle_message);
+        check(place_obstacle_success == true);
+        retry(3) do NavTo(robot_name="CAR",x=2.55,y=1.5,tolerance=0.5;success->nav3_success,message->nav3_message);
+        check(nav3_success == true);
+        retry(3) do Pick(robot_name="CAR",object_name="MEDICINE_BOTTLE";success->pick_bottle_success,message->pick_bottle_message);
+        check(pick_bottle_success == true);
+        retry(3) do NavTo(robot_name="CAR",x=-2.3,y=2.0,tolerance=0.5;success->nav4_success,message->nav4_message);
+        check(nav4_success == true);
+        do Place(robot_name="CAR",object_name="MEDICINE_BOTTLE",location_name="MEDICAL_TABLE";success->place_bottle_success,message->place_bottle_message);
+        check(place_bottle_success == true);
+    }
+}

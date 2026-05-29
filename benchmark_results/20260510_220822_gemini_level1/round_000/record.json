@@ -1,0 +1,27 @@
+{
+  "round": 0,
+  "model": "gemini",
+  "level": 1,
+  "task": "Pick up the CUP and place it on the TABLE.",
+  "status": "executed",
+  "llm_time_sec": 17.142848404999995,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 27.13752009799998,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "Navigate the robot to the CUP, pick it up, navigate to the TABLE, and place the CUP on it.",
+  "assumptions": [
+    "The robot CAR is capable of grasping the CUP.",
+    "The TABLE is a valid location to place the CUP.",
+    "Navigation to exactly the object coordinates will put them within the interaction distance."
+  ],
+  "rtdl": "def task PickAndPlaceCup(;){ state nav_succ1: bool; state nav_msg1: string; state pick_succ: bool; state pick_msg: string; state nav_succ2: bool; state nav_msg2: string; state place_succ: bool; state place_msg: string; sequence{ do NavTo(robot_name=\"CAR\", x=2.0, y=2.0, tolerance=0.5; success->nav_succ1, message->nav_msg1); check(nav_succ1 == true); do Pick(robot_name=\"CAR\", object_name=\"CUP\"; success->pick_succ, message->pick_msg); check(pick_succ == true); do NavTo(robot_name=\"CAR\", x=-2.0, y=2.0, tolerance=0.5; success->nav_succ2, message->nav_msg2); check(nav_succ2 == true); do Place(robot_name=\"CAR\", object_name=\"CUP\", location_name=\"TABLE\"; success->place_succ, message->place_msg); check(place_succ == true); } }",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 1,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 1,
+  "manual_notes": ""
+}

@@ -1,0 +1,36 @@
+def task PlaceMedicineBottle(;){
+    state n1_s: bool;
+    state n1_m: string;
+    state p1_s: bool;
+    state p1_m: string;
+    state n2_s: bool;
+    state n2_m: string;
+    state pl1_s: bool;
+    state pl1_m: string;
+    state n3_s: bool;
+    state n3_m: string;
+    state p2_s: bool;
+    state p2_m: string;
+    state n4_s: bool;
+    state n4_m: string;
+    state pl2_s: bool;
+    state pl2_m: string;
+    sequence{
+        do NavTo(robot_name="CAR", x=1.8497391826750418, y=1.4997831390044436, tolerance=0.5; success->n1_s, message->n1_m);
+        check(n1_s == true);
+        do Pick(robot_name="CAR", object_name="FRONT_CRATE"; success->p1_s, message->p1_m);
+        check(p1_s == true);
+        do NavTo(robot_name="CAR", x=-1.9999701271422639, y=-1.7999695111970087, tolerance=0.5; success->n2_s, message->n2_m);
+        check(n2_s == true);
+        do Place(robot_name="CAR", object_name="FRONT_CRATE", location_name="TEMP_ZONE"; success->pl1_s, message->pl1_m);
+        check(pl1_s == true);
+        do NavTo(robot_name="CAR", x=2.55, y=1.5, tolerance=0.5; success->n3_s, message->n3_m);
+        check(n3_s == true);
+        do Pick(robot_name="CAR", object_name="MEDICINE_BOTTLE"; success->p2_s, message->p2_m);
+        check(p2_s == true);
+        do NavTo(robot_name="CAR", x=-2.3, y=2.0, tolerance=0.5; success->n4_s, message->n4_m);
+        check(n4_s == true);
+        do Place(robot_name="CAR", object_name="MEDICINE_BOTTLE", location_name="MEDICAL_TABLE"; success->pl2_s, message->pl2_m);
+        check(pl2_s == true);
+    }
+}

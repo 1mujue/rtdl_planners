@@ -1,0 +1,21 @@
+def task pick_and_place(;){
+    state nav_cup_ok: bool;
+    state nav_cup_msg: string;
+    state pick_ok: bool;
+    state pick_msg: string;
+    state nav_table_ok: bool;
+    state nav_table_msg: string;
+    state place_ok: bool;
+    state place_msg: string;
+
+    sequence{
+        retry(3) do NavTo(robot_name="CAR", x=2.0, y=2.0, tolerance=0.5; success->nav_cup_ok, message->nav_cup_msg);
+        check(nav_cup_ok == true);
+        retry(3) do Pick(robot_name="CAR", object_name="CUP"; success->pick_ok, message->pick_msg);
+        check(pick_ok == true);
+        retry(3) do NavTo(robot_name="CAR", x=-2.0, y=2.0, tolerance=0.5; success->nav_table_ok, message->nav_table_msg);
+        check(nav_table_ok == true);
+        retry(3) do Place(robot_name="CAR", object_name="CUP", location_name="TABLE"; success->place_ok, message->place_msg);
+        check(place_ok == true);
+    }
+}

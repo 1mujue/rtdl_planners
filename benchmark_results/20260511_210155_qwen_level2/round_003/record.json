@@ -1,0 +1,28 @@
+{
+  "round": 3,
+  "model": "qwen",
+  "level": 2,
+  "task": "Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.",
+  "status": "executed",
+  "llm_time_sec": 103.7052558180003,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 58.93716529699941,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "Navigate CAR to the FRONT_CRATE obstacle, pick it up, and place it on TEMP_ZONE to clear the path. Then navigate to MEDICINE_BOTTLE, pick it up, move to MEDICAL_TABLE, and place the bottle there.",
+  "assumptions": [
+    "FRONT_CRATE is the obstacle blocking the path in front of CAR.",
+    "TEMP_ZONE is a valid and accessible location to dispose of the obstacle.",
+    "CAR starts with an empty gripper and no held objects.",
+    "Navigation tolerance of 0.5 is sufficient to satisfy the interaction distance preconditions for Pick and Place."
+  ],
+  "rtdl": "def task TaskMain(;){\n    state ok: bool;\n    state msg: string;\n    sequence{\n        do NavTo(robot_name=\"CAR\", x=1.85, y=1.5, tolerance=0.5; success->ok, message->msg);\n        check(ok == true);\n        do Pick(robot_name=\"CAR\", object_name=\"FRONT_CRATE\"; success->ok, message->msg);\n        check(ok == true);\n        do NavTo(robot_name=\"CAR\", x=-2.0, y=-1.8, tolerance=0.5; success->ok, message->msg);\n        check(ok == true);\n        do Place(robot_name=\"CAR\", object_name=\"FRONT_CRATE\", location_name=\"TEMP_ZONE\"; success->ok, message->msg);\n        check(ok == true);\n        do NavTo(robot_name=\"CAR\", x=2.55, y=1.5, tolerance=0.5; success->ok, message->msg);\n        check(ok == true);\n        do Pick(robot_name=\"CAR\", object_name=\"MEDICINE_BOTTLE\"; success->ok, message->msg);\n        check(ok == true);\n        do NavTo(robot_name=\"CAR\", x=-2.3, y=2.0, tolerance=0.5; success->ok, message->msg);\n        check(ok == true);\n        do Place(robot_name=\"CAR\", object_name=\"MEDICINE_BOTTLE\", location_name=\"MEDICAL_TABLE\"; success->ok, message->msg);\n        check(ok == true);\n    }\n}",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 1,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 1,
+  "manual_notes": ""
+}

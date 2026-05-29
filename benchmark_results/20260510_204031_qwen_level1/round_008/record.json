@@ -1,0 +1,27 @@
+{
+  "round": 8,
+  "model": "qwen",
+  "level": 1,
+  "task": "Pick up the CUP and place it on the TABLE.",
+  "status": "executed",
+  "llm_time_sec": 60.09945292999964,
+  "rtdl_valid": false,
+  "rtdl_error": null,
+  "execution_time_sec": 22.304599379000138,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "Navigate robot CAR to the CUP location, pick it up, navigate to the TABLE location, and place the CUP on the TABLE.",
+  "assumptions": [
+    "The CUP and TABLE coordinates from the world state are accurate and reachable.",
+    "A navigation tolerance of 1.0 is sufficient for the robot to interact with both the CUP and the TABLE.",
+    "The CUP remains graspable and the TABLE remains a valid placement target throughout execution."
+  ],
+  "rtdl": "def task PickAndPlaceCup(;){\n    state nav_cup_ok: bool;\n    state pick_ok: bool;\n    state nav_table_ok: bool;\n    state place_ok: bool;\n    sequence{\n        do NavTo(robot_name=\"CAR\", x=2.0, y=2.0, tolerance=1.0; success->nav_cup_ok);\n        check(nav_cup_ok == true);\n        do Pick(robot_name=\"CAR\", object_name=\"CUP\"; success->pick_ok);\n        check(pick_ok == true);\n        do NavTo(robot_name=\"CAR\", x=-2.0, y=2.0, tolerance=1.0; success->nav_table_ok);\n        check(nav_table_ok == true);\n        do Place(robot_name=\"CAR\", object_name=\"CUP\", location_name=\"TABLE\"; success->place_ok);\n        check(place_ok == true);\n    }\n}",
+  "error_type": null,
+  "error_message": "Compiler failed",
+  "traceback": null,
+  "manual_logic_completeness": 1,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 0,
+  "manual_notes": ""
+}

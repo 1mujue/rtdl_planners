@@ -1,0 +1,58 @@
+def task RemoveMiddleBoxAndRestoreStack(;){
+    state s1: bool;
+    state m1: string;
+    state s2: bool;
+    state m2: string;
+    state s3: bool;
+    state m3: string;
+    state s4: bool;
+    state m4: string;
+    state s5: bool;
+    state m5: string;
+    state s6: bool;
+    state m6: string;
+    state s7: bool;
+    state m7: string;
+    state s8: bool;
+    state m8: string;
+    state s9: bool;
+    state m9: string;
+    state s10: bool;
+    state m10: string;
+    state s11: bool;
+    state m11: string;
+    state s12: bool;
+    state m12: string;
+
+    sequence{
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=1.5; success->s1, message->m1);
+        check(s1 == true);
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->s2, message->m2);
+        check(s2 == true);
+
+        do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=1.5; success->s3, message->m3);
+        check(s3 == true);
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="TEMP_TABLE"; success->s4, message->m4);
+        check(s4 == true);
+
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=1.5; success->s5, message->m5);
+        check(s5 == true);
+        do Pick(robot_name="CAR", object_name="BOX_MIDDLE"; success->s6, message->m6);
+        check(s6 == true);
+
+        do NavTo(robot_name="CAR", x=-2.2, y=2.0, tolerance=1.5; success->s7, message->m7);
+        check(s7 == true);
+        do Place(robot_name="CAR", object_name="BOX_MIDDLE", location_name="INSPECTION_TABLE"; success->s8, message->m8);
+        check(s8 == true);
+
+        do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=1.5; success->s9, message->m9);
+        check(s9 == true);
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->s10, message->m10);
+        check(s10 == true);
+
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=1.5; success->s11, message->m11);
+        check(s11 == true);
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="BOX_BOTTOM"; success->s12, message->m12);
+        check(s12 == true);
+    }
+}

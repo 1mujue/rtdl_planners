@@ -1,0 +1,76 @@
+def task TakeMiddleBoxToInspectionTable(;){
+    state s1: bool;
+    state s2: bool;
+    state s3: bool;
+    state s4: bool;
+    state s5: bool;
+    state m1: string;
+    state m2: string;
+    state m3: string;
+    state m4: string;
+    state m5: string;
+
+    sequence{
+        # Step 1: Navigate to the box stack location (x=2.0, y=-1.0) with tolerance 0.5
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->s1, message->m1);
+        check(s1 == true);
+
+        # Step 2: Pick the top box (BOX_TOP) from the stack
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->s2, message->m2);
+        check(s2 == true);
+
+        # Step 3: Navigate to TEMP_TABLE location (x=-2.2, y=-1.8) with tolerance 0.5
+        do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=0.5; success->s3, message->m3);
+        check(s3 == true);
+
+        # Step 4: Place BOX_TOP on TEMP_TABLE
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="TEMP_TABLE"; success->s4, message->m4);
+        check(s4 == true);
+
+        # Step 5: Navigate back to the box stack location (x=2.0, y=-1.0) to pick BOX_MIDDLE
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->s5, message->m5);
+        check(s5 == true);
+
+        # Step 6: Pick BOX_MIDDLE
+        state s6: bool;
+        state m6: string;
+        do Pick(robot_name="CAR", object_name="BOX_MIDDLE"; success->s6, message->m6);
+        check(s6 == true);
+
+        # Step 7: Navigate to INSPECTION_TABLE location (x=-2.2, y=2.0) with tolerance 0.5
+        state s7: bool;
+        state m7: string;
+        do NavTo(robot_name="CAR", x=-2.2, y=2.0, tolerance=0.5; success->s7, message->m7);
+        check(s7 == true);
+
+        # Step 8: Place BOX_MIDDLE on INSPECTION_TABLE
+        state s8: bool;
+        state m8: string;
+        do Place(robot_name="CAR", object_name="BOX_MIDDLE", location_name="INSPECTION_TABLE"; success->s8, message->m8);
+        check(s8 == true);
+
+        # Step 9: Navigate to TEMP_TABLE to retrieve BOX_TOP
+        state s9: bool;
+        state m9: string;
+        do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=0.5; success->s9, message->m9);
+        check(s9 == true);
+
+        # Step 10: Pick BOX_TOP from TEMP_TABLE
+        state s10: bool;
+        state m10: string;
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->s10, message->m10);
+        check(s10 == true);
+
+        # Step 11: Navigate back to box stack location (x=2.0, y=-1.0) to place BOX_TOP on BOX_BOTTOM
+        state s11: bool;
+        state m11: string;
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=0.5; success->s11, message->m11);
+        check(s11 == true);
+
+        # Step 12: Place BOX_TOP on BOX_BOTTOM
+        state s12: bool;
+        state m12: string;
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="BOX_BOTTOM"; success->s12, message->m12);
+        check(s12 == true);
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "round": 3,
+  "model": "qwen",
+  "level": 1,
+  "task": "Pick up the CUP and place it on the TABLE.",
+  "status": "executed",
+  "llm_time_sec": 56.874517838999964,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 22.00373916099943,
+  "execution_success": true,
+  "execution_message": null,
+  "plan_summary": "Navigate the CAR robot close to the CUP, pick it up, navigate close to the TABLE, and place the CUP on it.",
+  "assumptions": [
+    "The CAR robot can successfully navigate to coordinates within interaction distance of the CUP and TABLE.",
+    "The CUP is graspable and the TABLE is a valid placement target.",
+    "The Pick and Place skills will succeed when preconditions (proximity, not holding/holding) are met."
+  ],
+  "rtdl": "def task pick_and_place_cup(;){\n    state nav1_ok: bool;\n    state pick_ok: bool;\n    state nav2_ok: bool;\n    state place_ok: bool;\n\n    sequence{\n        retry(3) do NavTo(robot_name=\"CAR\", x=1.5, y=2.0, tolerance=0.5; success->nav1_ok);\n        check(nav1_ok == true);\n        retry(3) do Pick(robot_name=\"CAR\", object_name=\"CUP\"; success->pick_ok);\n        check(pick_ok == true);\n        retry(3) do NavTo(robot_name=\"CAR\", x=-1.5, y=2.0, tolerance=0.5; success->nav2_ok);\n        check(nav2_ok == true);\n        retry(3) do Place(robot_name=\"CAR\", object_name=\"CUP\", location_name=\"TABLE\"; success->place_ok);\n        check(place_ok == true);\n    }\n}",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 1,
+  "manual_logic_correct": 1,
+  "manual_collision_observed": 0,
+  "manual_notes": ""
+}

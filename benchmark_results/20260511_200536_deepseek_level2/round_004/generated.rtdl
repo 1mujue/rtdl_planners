@@ -1,0 +1,28 @@
+def task PlaceMedicineBottle(;){
+    state success_pick_crate: bool;
+    state msg_pick_crate: string;
+    state success_pick_bottle: bool;
+    state msg_pick_bottle: string;
+    state success_place_bottle: bool;
+    state msg_place_bottle: string;
+    state nav_ok1: bool;
+    state nav_msg1: string;
+    state nav_ok2: bool;
+    state nav_msg2: string;
+    state nav_ok3: bool;
+    state nav_msg3: string;
+
+    sequence{
+        do NavTo(robot_name="CAR", x=1.85, y=1.5, tolerance=0.5; success->nav_ok1, message->nav_msg1);
+        check(nav_ok1 == true);
+        do Pick(robot_name="CAR", object_name="FRONT_CRATE"; success->success_pick_crate, message->msg_pick_crate);
+        check(success_pick_crate == true);
+        do NavTo(robot_name="CAR", x=2.55, y=1.5, tolerance=0.5; success->nav_ok2, message->nav_msg2);
+        check(nav_ok2 == true);
+        do Pick(robot_name="CAR", object_name="MEDICINE_BOTTLE"; success->success_pick_bottle, message->msg_pick_bottle);
+        check(success_pick_bottle == true);
+        do NavTo(robot_name="CAR", x=-2.3, y=2.0, tolerance=0.5; success->nav_ok3, message->nav_msg3);
+        check(nav_ok3 == true);
+        do Place(robot_name="CAR", object_name="MEDICINE_BOTTLE", location_name="MEDICAL_TABLE"; success->success_place_bottle, message->msg_place_bottle);
+    }
+}

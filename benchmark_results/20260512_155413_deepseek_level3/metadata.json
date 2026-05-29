@@ -1,0 +1,7 @@
+{
+  "model": "deepseek",
+  "level": 3,
+  "task": "Take the BOX_MIDDLE of the box and place it on INSPECTION_TABLE. After that, the stack should look like it is removed the middle box ONLY. NOTE: only the top box of the box stack can be picked(like the data structure).",
+  "repeat": 10,
+  "created_at": "20260512_155417"
+}

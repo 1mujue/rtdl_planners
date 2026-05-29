@@ -1,0 +1,31 @@
+def task TransferBoxMiddle(;){
+    state s: bool;
+    state m: string;
+
+    sequence{
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=1.0; success->s, message->m);
+        check(s == true);
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->s, message->m);
+        check(s == true);
+        do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=1.0; success->s, message->m);
+        check(s == true);
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="TEMP_TABLE"; success->s, message->m);
+        check(s == true);
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=1.0; success->s, message->m);
+        check(s == true);
+        do Pick(robot_name="CAR", object_name="BOX_MIDDLE"; success->s, message->m);
+        check(s == true);
+        do NavTo(robot_name="CAR", x=-2.2, y=2.0, tolerance=1.0; success->s, message->m);
+        check(s == true);
+        do Place(robot_name="CAR", object_name="BOX_MIDDLE", location_name="INSPECTION_TABLE"; success->s, message->m);
+        check(s == true);
+        do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=1.0; success->s, message->m);
+        check(s == true);
+        do Pick(robot_name="CAR", object_name="BOX_TOP"; success->s, message->m);
+        check(s == true);
+        do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=1.0; success->s, message->m);
+        check(s == true);
+        do Place(robot_name="CAR", object_name="BOX_TOP", location_name="BOX_BOTTOM"; success->s, message->m);
+        check(s == true);
+    }
+}

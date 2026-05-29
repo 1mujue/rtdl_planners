@@ -1,0 +1,33 @@
+def task PlaceMedicineOnTable(;){
+    state pick_crate_ok: bool;
+    state msg1: string;
+    state nav_temp_ok: bool;
+    state msg2: string;
+    state place_crate_ok: bool;
+    state msg3: string;
+    state nav_bottle_ok: bool;
+    state msg4: string;
+    state pick_bottle_ok: bool;
+    state msg5: string;
+    state nav_table_ok: bool;
+    state msg6: string;
+    state place_bottle_ok: bool;
+    state msg7: string;
+
+    sequence{
+        do Pick(robot_name="CAR", object_name="FRONT_CRATE"; success->pick_crate_ok, message->msg1);
+        check(pick_crate_ok == true);
+        do NavTo(robot_name="CAR", x=-1.999970109099707, y=-1.7999695757561949, tolerance=1.5; success->nav_temp_ok, message->msg2);
+        check(nav_temp_ok == true);
+        do Place(robot_name="CAR", object_name="FRONT_CRATE", location_name="TEMP_ZONE"; success->place_crate_ok, message->msg3);
+        check(place_crate_ok == true);
+        do NavTo(robot_name="CAR", x=2.55, y=1.5, tolerance=1.5; success->nav_bottle_ok, message->msg4);
+        check(nav_bottle_ok == true);
+        do Pick(robot_name="CAR", object_name="MEDICINE_BOTTLE"; success->pick_bottle_ok, message->msg5);
+        check(pick_bottle_ok == true);
+        do NavTo(robot_name="CAR", x=-2.3, y=2.0, tolerance=1.5; success->nav_table_ok, message->msg6);
+        check(nav_table_ok == true);
+        do Place(robot_name="CAR", object_name="MEDICINE_BOTTLE", location_name="MEDICAL_TABLE"; success->place_bottle_ok, message->msg7);
+        check(place_bottle_ok == true);
+    }
+}

@@ -1,0 +1,29 @@
+def task PlaceBottleAfterObstacleRemoval(;){
+    state nav_crate: bool;
+    state pick_crate: bool;
+    state nav_temp: bool;
+    state place_crate: bool;
+    state nav_bottle: bool;
+    state pick_bottle: bool;
+    state nav_table: bool;
+    state place_bottle: bool;
+
+    sequence{
+        do NavTo(robot_name="CAR", x=1.8497392454018415, y=1.4997831961834884, tolerance=0.5; success->nav_crate);
+        check(nav_crate == true);
+        do Pick(robot_name="CAR", object_name="FRONT_CRATE"; success->pick_crate);
+        check(pick_crate == true);
+        do NavTo(robot_name="CAR", x=-1.9999701802538303, y=-1.7999695851004838, tolerance=0.5; success->nav_temp);
+        check(nav_temp == true);
+        do Place(robot_name="CAR", object_name="FRONT_CRATE", location_name="TEMP_ZONE"; success->place_crate);
+        check(place_crate == true);
+        do NavTo(robot_name="CAR", x=2.55, y=1.5, tolerance=0.5; success->nav_bottle);
+        check(nav_bottle == true);
+        do Pick(robot_name="CAR", object_name="MEDICINE_BOTTLE"; success->pick_bottle);
+        check(pick_bottle == true);
+        do NavTo(robot_name="CAR", x=-2.3, y=2.0, tolerance=0.5; success->nav_table);
+        check(nav_table == true);
+        do Place(robot_name="CAR", object_name="MEDICINE_BOTTLE", location_name="MEDICAL_TABLE"; success->place_bottle);
+        check(place_bottle == true);
+    }
+}

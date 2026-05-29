@@ -1,0 +1,27 @@
+{
+  "round": 0,
+  "model": "kimi",
+  "level": 2,
+  "task": "Place the MEDICINE_BOTTLE on MEDICAL_TABLE after removing the obstacle in front of the CAR.",
+  "status": "executed",
+  "llm_time_sec": 12.55566023099982,
+  "rtdl_valid": true,
+  "rtdl_error": null,
+  "execution_time_sec": 58.63323494799988,
+  "execution_success": false,
+  "execution_message": null,
+  "plan_summary": "CAR navigates to FRONT_CRATE, picks it up to remove obstacle, then navigates to MEDICINE_BOTTLE, picks it up, navigates to MEDICAL_TABLE, and places the MEDICINE_BOTTLE there.",
+  "assumptions": [
+    "FRONT_CRATE at (1.85, 1.5) is the obstacle in front of CAR",
+    "TEMP_ZONE is a valid placement location to move the obstacle (FRONT_CRATE) away",
+    "All navigation targets are within interaction_distance after navigation"
+  ],
+  "rtdl": "def task PlaceMedicineAfterRemovingObstacle(;){ state nav_success: bool; state pick_success: bool; state place_success: bool; state msg: string; sequence{ do NavTo(robot_name=\"CAR\",x=1.85,y=1.5,tolerance=0.5;success->nav_success,message->msg); check(nav_success == true); do Pick(robot_name=\"CAR\",object_name=\"FRONT_CRATE\";success->pick_success,message->msg); check(pick_success == true); do NavTo(robot_name=\"CAR\",x=-2.0,y=-1.8,tolerance=0.5;success->nav_success,message->msg); check(nav_success == true); do Place(robot_name=\"CAR\",object_name=\"FRONT_CRATE\",location_name=\"TEMP_ZONE\";success->place_success,message->msg); check(place_success == true); do NavTo(robot_name=\"CAR\",x=2.55,y=1.5,tolerance=0.5;success->nav_success,message->msg); check(nav_success == true); do Pick(robot_name=\"CAR\",object_name=\"MEDICINE_BOTTLE\";success->pick_success,message->msg); check(pick_success == true); do NavTo(robot_name=\"CAR\",x=-2.3,y=2.0,tolerance=0.5;success->nav_success,message->msg); check(nav_success == true); do Place(robot_name=\"CAR\",object_name=\"MEDICINE_BOTTLE\",location_name=\"MEDICAL_TABLE\";success->place_success,message->msg); check(place_success == true); } }",
+  "error_type": null,
+  "error_message": null,
+  "traceback": null,
+  "manual_logic_completeness": 0.5,
+  "manual_logic_correct": 0.5,
+  "manual_collision_observed": 1,
+  "manual_notes": "overlook the obstacle"
+}

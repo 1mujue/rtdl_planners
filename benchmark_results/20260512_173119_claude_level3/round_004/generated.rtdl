@@ -1,0 +1,53 @@
+def task RemoveMiddleBox(;){
+    state nav_success1: bool;
+    state nav_msg1: string;
+    state pick_success1: bool;
+    state pick_msg1: string;
+    state nav_success2: bool;
+    state nav_msg2: string;
+    state place_success1: bool;
+    state place_msg1: string;
+    state nav_success3: bool;
+    state nav_msg3: string;
+    state pick_success2: bool;
+    state pick_msg2: string;
+    state nav_success4: bool;
+    state nav_msg4: string;
+    state place_success2: bool;
+    state place_msg2: string;
+    state nav_success5: bool;
+    state nav_msg5: string;
+    state pick_success3: bool;
+    state pick_msg3: string;
+    state nav_success6: bool;
+    state nav_msg6: string;
+    state place_success3: bool;
+    state place_msg3: string;
+
+    sequence{
+        retry(3) do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=1.5; success->nav_success1, message->nav_msg1);
+        check(nav_success1 == true);
+        retry(3) do Pick(robot_name="CAR", object_name="BOX_TOP"; success->pick_success1, message->pick_msg1);
+        check(pick_success1 == true);
+        retry(3) do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=1.5; success->nav_success2, message->nav_msg2);
+        check(nav_success2 == true);
+        retry(3) do Place(robot_name="CAR", object_name="BOX_TOP", location_name="TEMP_TABLE"; success->place_success1, message->place_msg1);
+        check(place_success1 == true);
+        retry(3) do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=1.5; success->nav_success3, message->nav_msg3);
+        check(nav_success3 == true);
+        retry(3) do Pick(robot_name="CAR", object_name="BOX_MIDDLE"; success->pick_success2, message->pick_msg2);
+        check(pick_success2 == true);
+        retry(3) do NavTo(robot_name="CAR", x=-2.2, y=2.0, tolerance=1.5; success->nav_success4, message->nav_msg4);
+        check(nav_success4 == true);
+        retry(3) do Place(robot_name="CAR", object_name="BOX_MIDDLE", location_name="INSPECTION_TABLE"; success->place_success2, message->place_msg2);
+        check(place_success2 == true);
+        retry(3) do NavTo(robot_name="CAR", x=-2.2, y=-1.8, tolerance=1.5; success->nav_success5, message->nav_msg5);
+        check(nav_success5 == true);
+        retry(3) do Pick(robot_name="CAR", object_name="BOX_TOP"; success->pick_success3, message->pick_msg3);
+        check(pick_success3 == true);
+        retry(3) do NavTo(robot_name="CAR", x=2.0, y=-1.0, tolerance=1.5; success->nav_success6, message->nav_msg6);
+        check(nav_success6 == true);
+        retry(3) do Place(robot_name="CAR", object_name="BOX_TOP", location_name="BOX_BOTTOM"; success->place_success3, message->place_msg3);
+        check(place_success3 == true);
+    }
+}
