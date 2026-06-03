@@ -25,8 +25,8 @@ class Conductor:
             executable_name=bt_runner_tar,
             ros_distro=os.environ.get("ROS_DISTRO"),
         )
-    def get_world_state(self) -> Dict:
-        return self.WSClient.fetch()
+    def get_world_state(self) -> str:
+        return self.WSClient.fetch_json()
     
     def plan_rtdl(self, task:str) -> Dict:
         result = self.planner.plan(task)
